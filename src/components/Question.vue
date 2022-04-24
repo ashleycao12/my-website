@@ -21,6 +21,7 @@
       const question = ref()
       const options = ref()
       const resultTrack = ref([])   //to track the current stage of the result based on user's selection
+      const weight = ref()
 
       //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
       resultListJson.forEach((result) => {   
@@ -34,11 +35,12 @@
       function getQ (){
         question.value = questionListJson[questionID.value].text
         options.value = questionListJson[questionID.value].options
+        weight.value = Number(questionListJson[questionID.value].weight)
       }
-
       
 
       getQ()
+      console.log(typeof weight.value)
       // question.value = questionListJson[questionID.value].text
       // options.value = questionListJson[questionID.value].options
       
