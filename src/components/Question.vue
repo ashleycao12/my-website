@@ -3,7 +3,7 @@
     <h3 class="Q-text" >{{question}}</h3>
     <div class="option" v-for = "option in options" @click= "nextQ"> {{option.text}} </div>
   </div>
-    <button @click= "nextQ">change question</button>
+    <!-- <button @click= "nextQ">change question</button> -->
     <!-- <Question :questionID="currentQ"/> -->
   <!-- <p v-for="question in questionList" :key="question.id">
     {{question.text}}
