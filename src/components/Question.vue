@@ -8,18 +8,28 @@
   <!-- <p v-for="question in questionList" :key="question.id">
     {{question.text}}
   </p> -->
-</template>
 
+</template>
 <script>
   import {ref} from 'vue'
   import questionList from '@/assets/question-list.json'
+  import resultList from '@/assets/result-list.json'
 
   export default {
     setup(){
       const questionID = ref(0)
       const question = ref()
       const options = ref()
+      const resultTrack = ref([])
       
+      resultList.forEach((result) => {
+        resultTrack.value.push({
+          name:result.name,
+          score:0
+        })
+      })
+      console.log(resultTrack.value[0])
+
       function getQ (){
         question.value = questionList[questionID.value].text
       }
