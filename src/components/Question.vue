@@ -47,7 +47,12 @@
       function nextQ (event) {
         //update resultTracking
         console.log("id", event.target.id)
-        // const association = event.target.id
+        const association = event.target.id
+        // resultTrack.forEach((result) =>{
+        //   if (result.name = association) {
+        //     console.log
+        //   }
+        // })
         // const association = questionList[questionID.value].options
 
         //move to the next question
