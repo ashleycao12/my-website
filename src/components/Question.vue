@@ -1,7 +1,7 @@
 <template>
   <div class ="Q">
     <h3 class="Q-text" >{{question}}</h3>
-    <div class="option" v-for = "option in options" @click= "nextQ"> {{option.text}} </div>
+    <div class="option" v-for = "option in options" @click= "nextQ" :id= "option.association"> {{option.text}} </div>
   </div>
     <!-- <button @click= "nextQ">change question</button> -->
     <!-- <Question :questionID="currentQ"/> -->
@@ -20,15 +20,16 @@
       const questionID = ref(0)
       const question = ref()
       const options = ref()
-      const resultTrack = ref([])
-      
-      resultList.forEach((result) => {
+      const resultTrack = ref([])   //to track the current stage of the result based on user's selection
+
+      //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
+      resultList.forEach((result) => {   
         resultTrack.value.push({
           name:result.name,
           score:0
         })
       })
-      console.log(resultTrack.value[0])
+      // console.log(resultTrack.value[0])
 
       function getQ (){
         question.value = questionList[questionID.value].text
@@ -43,11 +44,16 @@
       // question.value = questionList[questionID.value].text
       // options.value = questionList[questionID.value].options
       
-      function nextQ () {
+      function nextQ (event) {
+        //update resultTracking
+        console.log("id", event.target.id)
+        // const association = event.target.id
+        // const association = questionList[questionID.value].options
+
+        //move to the next question
         questionID.value++
         getQ()
         getOption()
-        console.log(question)
         // question.value = questionList[questionID.value].text
       }
 
