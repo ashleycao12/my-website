@@ -1,7 +1,7 @@
 <template>
   <div class ="Q">
     <h3 class="Q-text" >{{question}}</h3>
-    <div class="option" v-for = "option in options"> {{option.text}} </div>
+    <div class="option" v-for = "option in options" @click= "nextQ"> {{option.text}} </div>
   </div>
     <button @click= "nextQ">change question</button>
     <!-- <Question :questionID="currentQ"/> -->
