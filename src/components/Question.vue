@@ -5,15 +5,15 @@
   </div>
     <!-- <button @click= "nextQ">change question</button> -->
     <!-- <Question :questionID="currentQ"/> -->
-  <!-- <p v-for="question in questionList" :key="question.id">
+  <!-- <p v-for="question in questionListJson" :key="question.id">
     {{question.text}}
   </p> -->
 
 </template>
 <script>
   import {ref} from 'vue'
-  import questionList from '@/assets/question-list.json'
-  import resultList from '@/assets/result-list.json'
+  import questionListJson from '@/assets/question-list.json'
+  import resultListJson from '@/assets/result-list.json'
 
   export default {
     setup(){
@@ -23,53 +23,50 @@
       const resultTrack = ref([])   //to track the current stage of the result based on user's selection
 
       //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
-      resultList.forEach((result) => {   
+      resultListJson.forEach((result) => {   
         resultTrack.value.push({
           name:result.name,
           score:0
         })
       })
-      // console.log(resultTrack.value[0])
+      // resultTrack.value.forEach((result => console.log(result.name)))
 
       function getQ (){
-        question.value = questionList[questionID.value].text
+        question.value = questionListJson[questionID.value].text
+        options.value = questionListJson[questionID.value].options
       }
 
-      function getOption (){
-        options.value = questionList[questionID.value].options
-      }
+      
 
       getQ()
-      getOption()
-      // question.value = questionList[questionID.value].text
-      // options.value = questionList[questionID.value].options
+      // question.value = questionListJson[questionID.value].text
+      // options.value = questionListJson[questionID.value].options
       
       function nextQ (event) {
         //update resultTracking
-        console.log("id", event.target.id)
         const association = event.target.id
-        // resultTrack.forEach((result) =>{
-        //   if (result.name = association) {
-        //     console.log
-        //   }
-        // })
-        // const association = questionList[questionID.value].options
+        resultTrack.value.forEach((result) =>{
+          if (result.name === association) {
+            console.log (association)
+          }
+        })
+
+        // const association = questionListJson[questionID.value].options
 
         //move to the next question
         questionID.value++
         getQ()
-        getOption()
-        // question.value = questionList[questionID.value].text
+        // question.value = questionListJson[questionID.value].text
       }
 
       return{
-        question, questionID, nextQ, options, getQ, getOption
+        question, questionID, nextQ, options, getQ
       }
     },
 
     // data(){
     //   return{
-    //     questionList : questionList
+    //     questionListJson : questionListJson
     //   }
     // }
   }
