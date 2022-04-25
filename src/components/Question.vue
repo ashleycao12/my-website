@@ -16,7 +16,7 @@
   import resultListJson from '@/assets/result-list.json'
 
   export default {
-    setup(){
+    setup(props, context){
       // declare and initialise variable
       const questionID = ref(0)
       const question = ref()
@@ -41,7 +41,7 @@
         weight.value = Number(questionListJson[questionID.value].weight)
       }
       
-      function top (result) {
+      function top(result) {
         const scoreList = []        
         result.forEach(currentItem =>{scoreList.push(currentItem.score)})
         const max = Math.max(...scoreList)
@@ -70,15 +70,15 @@
           questionID.value++
           getQ()
         } else {
-          console.log("End game");
-          console.log(top(resultTrack.value));
+          context.emit('endGame', top(resultTrack.value))
         }
        
         // question.value = questionListJson[questionID.value].text
       }
 
       return{
-        question, questionID, nextQ, options, getQ
+        nextQ, question,  options, 
+        // getQ, questionID,
       }
     },
 

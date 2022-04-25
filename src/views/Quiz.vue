@@ -1,16 +1,28 @@
 <template>
  <h3>This is the Quiz page</h3>
- <Question/>
+ <Question v-if= "isPlaying" @endGame= "showResult"/>
+ <QuizResult v-if= "isPlaying === false" :resultName= "resultName"/>
 </template>
 
 
 <script>
   import {ref} from 'vue'
   import Question from '@/components/Question.vue'
+  import QuizResult from '@/components/QuizResult.vue'
   export default{
-    components: {Question},
-    
+    components: {Question, QuizResult},
+    setup(){
+      const isPlaying = ref(true)
+      const resultName = ref()
+      function showResult(result0) {
+        isPlaying.value = false
+        resultName.value = result0
+        console.log(resultName.value);
+      }
+
+      return {isPlaying, showResult, resultName}
     }
+  }
 </script>
 
 
