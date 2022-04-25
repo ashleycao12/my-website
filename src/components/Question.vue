@@ -17,6 +17,7 @@
 
   export default {
     setup(){
+      // declare and initialise variable
       const questionID = ref(0)
       const question = ref()
       const options = ref()
@@ -31,35 +32,46 @@
           score:1
         })
       })
-      // resultTrack.value.forEach((result => console.log(result.name)))
+      getQ()
 
+      //get text, list of options and weight of the current question.
       function getQ (){
         question.value = questionListJson[questionID.value].text
         options.value = questionListJson[questionID.value].options
         weight.value = Number(questionListJson[questionID.value].weight)
       }
       
+      function top (result) {
+        const scoreList = []        
+        result.forEach(currentItem =>{scoreList.push(currentItem.score)})
+        const max = Math.max(...scoreList)
+        let top0 = ""
+        result.forEach(currentItem => {
+          if (currentItem.score === max) {
+            top0 = currentItem.name
+          }
+        });
+          return top0
+      }
 
-      getQ()
-      // question.value = questionListJson[questionID.value].text
-      // options.value = questionListJson[questionID.value].options
-      
+
       function nextQ (event) {
         //update resultTracking
         const association = event.target.id
         resultTrack.value.forEach((result) =>{
           if (result.name === association) {
             result.score = result.score + weight.value
-            console.log (result.score)
           }
         })
         // const association = questionListJson[questionID.value].options
 
         //move to the next question
-        console.log(questionID.value != numQ.value - 1)
         if (questionID.value != numQ.value - 1) {
           questionID.value++
           getQ()
+        } else {
+          console.log("End game");
+          console.log(top(resultTrack.value));
         }
        
         // question.value = questionListJson[questionID.value].text
