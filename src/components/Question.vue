@@ -22,12 +22,13 @@
       const options = ref()
       const resultTrack = ref([])   //to track the current stage of the result based on user's selection
       const weight = ref()
-
+      const numQ = ref(questionListJson.length)
+      
       //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
       resultListJson.forEach((result) => {   
         resultTrack.value.push({
           name:result.name,
-          score:0
+          score:1
         })
       })
       // resultTrack.value.forEach((result => console.log(result.name)))
@@ -40,7 +41,6 @@
       
 
       getQ()
-      console.log(typeof weight.value)
       // question.value = questionListJson[questionID.value].text
       // options.value = questionListJson[questionID.value].options
       
@@ -49,15 +49,19 @@
         const association = event.target.id
         resultTrack.value.forEach((result) =>{
           if (result.name === association) {
-            console.log (association)
+            result.score = result.score + weight.value
+            console.log (result.score)
           }
         })
-
         // const association = questionListJson[questionID.value].options
 
         //move to the next question
-        questionID.value++
-        getQ()
+        console.log(questionID.value != numQ.value - 1)
+        if (questionID.value != numQ.value - 1) {
+          questionID.value++
+          getQ()
+        }
+       
         // question.value = questionListJson[questionID.value].text
       }
 
