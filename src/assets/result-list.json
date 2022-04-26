@@ -1,18 +1,24 @@
 [
   {
-    "name": "coffeeBean",
-    "description": "Amet exercitation mollit deserunt excepteur amet aute aliquip fug"
+    "name": "Coffee bean",
+    "description": "Amet exercitation mollit deserunt excepteur amet aute aliquip fug",
+    "imgSrc":"Coffee-bean.jpg"
   },
   {
-    "name": "soyaBean",
-    "description": "Adipisicing cillum commodo occaecat reprehenderit dolore occaecat."
+    "name": "Soya bean",
+    "description": "Adipisicing cillum commodo occaecat reprehenderit dolore occaecat.",
+    "imgSrc":"Soya-bean.jpg"
+
   },
   {
-    "name": "beanSprout",
-    "description": "Eu proident fugiat amet nostrud."
+    "name": "Beansprouts",
+    "description": "Eu proident fugiat amet nostrud.",
+    "imgSrc":"Beansprouts.jpg"
+
   },
   {
-    "name": "eggPlant",
-    "description": "Lorem non dolor culpa minim ut."
+    "name": "Jelly bean",
+    "description": "Lorem non dolor culpa minim ut.",
+    "imgSrc":"Jelly-bean.jpg"
 }
 ]

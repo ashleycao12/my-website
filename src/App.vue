@@ -1,6 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
+    <router-link to="/">About</router-link>
+    <router-link to="/">My project</router-link>
     <router-link to="/quiz">Quiz</router-link>
   </nav>
   <router-view/>
@@ -13,6 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 
 nav {
@@ -26,5 +29,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body {
+  background-color: rgb(255, 253, 248);
 }
 </style>
