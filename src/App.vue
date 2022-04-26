@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Home</router-link> 
     <router-link to="/">About</router-link>
     <router-link to="/">My project</router-link>
     <router-link to="/quiz">Quiz</router-link>
@@ -11,27 +11,44 @@
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   text-align: center;
-  color: #2c3e50;
   
 }
 
 nav {
   padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: rgb(255, 240, 220);
 }
 
 nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  /* font-weight: bold; */
+  /* color: #2c3e50; */
+  /* padding: 7px; */
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-left:15px ;
+  margin-right:15px ;
+  color: rgb(83, 83, 83)
+}
+
+nav a:hover{
+  background: rgb(253, 210, 150);
+  color: rgb(50, 50, 50);
+  margin-left:50px ;
+  margin-right:50px ;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  text-decoration: underline;
+  
 }
 
-body {
-  background-color: rgb(255, 253, 248);
-}
 </style>
