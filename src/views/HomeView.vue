@@ -38,7 +38,6 @@ export default {
   .gif {
     height: 500px;
     background-color: black;
-    /* border-radius: 20px; */
     flex: 1;
   }
   .project {

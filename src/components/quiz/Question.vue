@@ -1,10 +1,10 @@
 <template>
   <div class ="Q">
-    <h3 class="Q-text" >{{question}}</h3>
+    <h3 class="Q-text" >{{questionText}}</h3>
     <div class="option" v-for = "option in options" @click= "nextQ" :id= "option.association"> {{option.text}} </div>
-    <div>
-      <button class="changeQ back">&lt;</button>
-      <button class="changeQ forward">&gt;</button>
+    <div class="changeQ-parent">
+      <button class="changeQ">&lt;</button>
+      <button class="changeQ">&gt;</button>
     </div>
   </div>
     <!-- <button @click= "nextQ">change question</button> -->
@@ -23,34 +23,70 @@
     setup(props, context){
       // declare and initialise variable
       const questionID = ref(0)
-      const question = ref()
+      const questionText = ref()
       const options = ref()
       const resultTrack = ref([])   //to track the current stage of the result based on user's selection
       const weight = ref()
       const numQ = ref(questionListJson.length)
-      
+      const questionTrack = ref()  //to track quiz progress and allow revisting past questions
+
       //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
       resultListJson.forEach((result) => {   
         resultTrack.value.push({
           name:result.name,
-          score:1
+          score:0
         })
       })
+
+      // put the question list to a new variable
+      questionTrack.value = questionListJson
+      questionTrack.value.forEach(question=>{
+        question.answered = false,
+        question.options.forEach(option=>{
+          option.selected = false
+        })
+      })
+      console.log(questionTrack.value[0].options);
+
       getQ()
 
       //get text, list of options and weight of the current question.
       function getQ (){
-        question.value = questionListJson[questionID.value].text
+        questionText.value = questionListJson[questionID.value].text
         options.value = questionListJson[questionID.value].options
         weight.value = Number(questionListJson[questionID.value].weight)
       }
       
-      function top(result) {
+      // function top(result) {
+      //   const scoreList = []        
+      //   result.forEach(currentItem =>{scoreList.push(currentItem.score)})
+      //   const max = Math.max(...scoreList)
+      //   let top0 = ""
+      //   result.forEach(currentItem => {
+      //     if (currentItem.score === max) {
+      //       top0 = currentItem.name
+      //     }
+      //   });
+      //     return top0
+      // }
+
+      function top() {
+        //extract quiz result from questionTrack
+        resultTrack.value.forEach(result => {
+          questionTrack.value.forEach(question=>{
+            question.options.forEach(option=>{              
+              if((result.name === option.association) && (option.selected === true)){
+                result.score = result.score+Number(question.weight)
+              }
+            })
+          })
+        });
+
         const scoreList = []        
-        result.forEach(currentItem =>{scoreList.push(currentItem.score)})
+        resultTrack.value.forEach(currentItem =>{scoreList.push(currentItem.score)})
         const max = Math.max(...scoreList)
         let top0 = ""
-        result.forEach(currentItem => {
+        resultTrack.value.forEach(currentItem => {
           if (currentItem.score === max) {
             top0 = currentItem.name
           }
@@ -60,37 +96,36 @@
 
 
       function nextQ (event) {
-        //update resultTracking
+        //update questionTracking
         const association = event.target.id
-        resultTrack.value.forEach((result) =>{
-          if (result.name === association) {
-            result.score = result.score + weight.value
-          }
+        const currentQ = questionTrack.value[questionID.value]
+        
+        currentQ.answered = true;
+        currentQ.options.forEach(option=>{
+          if(option.association === association) {
+            option.selected = true
+          } 
+          // else {if (option.selected === true){
+          //   option.selected = false
+          // }}
         })
-        // const association = questionListJson[questionID.value].options
 
         //move to the next question
         if (questionID.value != numQ.value - 1) {
           questionID.value++
           getQ()
         } else {
-          context.emit('endGame', top(resultTrack.value))
+          console.log(resultTrack.value);
+          console.log(questionTrack.value);
+          context.emit('endGame', top())
         }
-       
-        // question.value = questionListJson[questionID.value].text
       }
 
       return{
-        nextQ, question,  options, 
+        nextQ, questionText, options, 
         // getQ, questionID,
       }
     },
-
-    // data(){
-    //   return{
-    //     questionListJson : questionListJson
-    //   }
-    // }
   }
 </script>
 
@@ -114,11 +149,17 @@
     background: rgb(239, 166, 144);
     transition: 0.2ms;
   }
-  .changeQ {
+  .changeQ-parent {
     margin-top: 20px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
   }
-  .forward {
-    margin-right: 10px;
+  .changeQ {
+    padding: 5px 10px;
+    border: solid;
+    border-color: rgb(167, 167, 167);
+    border-width: 2px;
   }
   h3{
     margin: 5px 0 15px 0;
