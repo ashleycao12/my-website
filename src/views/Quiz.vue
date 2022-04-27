@@ -1,7 +1,12 @@
 <template>
- <!-- <h3>This is the Quiz page</h3> -->
- <Question v-if= "isPlaying" @endGame= "showResult"/>
- <QuizResult v-if= "isPlaying === false" :resultName= "resultName"/>
+ <h3>What kind of bean are you?</h3>
+ <div v-if="status === 'intro'">
+   <div class="startPhoto">Place holder</div>
+   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis voluptates unde harum, atque, quae a, vel quaerat repudiandae molestiae modi quia culpa velit architecto rerum eum officia veniam aperiam quasi. Ducimus ut neque quo amet, odio rem delectus nam deleniti illo animi iste assumenda quasi recusandae rerum perspiciatis non cumque repudiandae distinctio blanditiis dignissimos aperiam quam accusamus ipsam laudantium. Minus autem enim aspernatur cumque praesentium perferendis a provident maiores magnam quaerat? Voluptas, dolore dolor? Dolorum, magni! Iure repellendus veritatis eligendi, fuga dignissimos magni debitis assumenda ratione error rem magnam asperiores itaque pariatur aspernatur a animi qui quaerat quos non illo!</p>
+   <button class="startButton" @click="start">Start</button>
+ </div>
+ <Question v-if="status === 'playing'" @endGame="showResult"/>
+ <QuizResult v-if="status === 'finished'" :resultName="resultName"/>
 </template>
 
 
@@ -12,22 +17,31 @@
   export default{
     components: {Question, QuizResult},
     setup(){
-      const isPlaying = ref(true)
+      const status = ref('intro')
       const resultName = ref()
       function showResult(result0) {
-        isPlaying.value = false
+        status.value = 'finished'
         resultName.value = result0
         console.log(resultName.value);
       }
-
-      return {isPlaying, showResult, resultName}
+      function start() {
+        status.value = 'playing'
+      }
+      return {status, showResult, resultName, start}
     }
   }
 </script>
 
 
 <style>
- /* body{
-   background-color: rgb(228, 242, 244);
- }  */
+  .startPhoto {
+    background-color: black;
+    height: 300px;
+    margin: 20px 200px 20px;
+  }
+  .startButton {
+    padding: 10px 20px;
+    background-color: palevioletred;
+    border: none;
+  }
 </style>

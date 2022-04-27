@@ -2,6 +2,10 @@
   <div class ="Q">
     <h3 class="Q-text" >{{question}}</h3>
     <div class="option" v-for = "option in options" @click= "nextQ" :id= "option.association"> {{option.text}} </div>
+    <div>
+      <button class="changeQ back">&lt;</button>
+      <button class="changeQ forward">&gt;</button>
+    </div>
   </div>
     <!-- <button @click= "nextQ">change question</button> -->
     <!-- <Question :questionID="currentQ"/> -->
@@ -12,8 +16,8 @@
 </template>
 <script>
   import {ref} from 'vue'
-  import questionListJson from '@/assets/question-list.json'
-  import resultListJson from '@/assets/result-list.json'
+  import questionListJson from '@/assets/quiz/question-list.json'
+  import resultListJson from '@/assets/quiz/result-list.json'
 
   export default {
     setup(props, context){
@@ -107,8 +111,14 @@
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.15);
   }
   .option:hover{
-    background: rgb(144, 196, 212);
+    background: rgb(239, 166, 144);
     transition: 0.2ms;
+  }
+  .changeQ {
+    margin-top: 20px;
+  }
+  .forward {
+    margin-right: 10px;
   }
   h3{
     margin: 5px 0 15px 0;

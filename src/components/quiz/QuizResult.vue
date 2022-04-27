@@ -6,7 +6,7 @@
 
 <script>
 import {ref} from 'vue'
-import resultList from '@/assets/result-list.json'
+import resultList from '@/assets/quiz/result-list.json'
 export default {
   props: ['resultName'],
   setup(props){
@@ -21,7 +21,6 @@ export default {
         console.log(currentItem.imgSrc);
       }
     });    
-    // imgSrc.value = require("@/assets/result-images/Soya-bean.jpg")
     return{result, description,imgSrc}
   }
 }

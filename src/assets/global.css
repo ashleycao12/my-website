@@ -3,5 +3,11 @@ body {
   color: rgb(73, 73, 73);
   text-align: center;
   padding-top: 80px;
+}
 
+button:hover {
+  cursor: pointer;
+}
+button {
+  border-radius: 10px;
 }
