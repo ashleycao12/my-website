@@ -5,17 +5,12 @@
       <div :class= "dotStyle(index,questionID)" v-for= "(question,index) in questionTrack" :key="index"></div>
     </div>
     <h3 class="Q-text" >{{questionText}}</h3>
-    <div class="option" v-for = "option in options" @click= "nextQ" :id= "option.association"> {{option.text}} </div>
+    <div class="option" v-for = "option in options" @click= "nextQ (option.association)"> {{option.text}} </div>
     <div class="changeQ">
       <button>&lt;</button>
       <button>&gt;</button>
     </div>
   </div>
-    <!-- <button @click= "nextQ">change question</button> -->
-    <!-- <Question :questionID="currentQ"/> -->
-  <!-- <p v-for="question in questionListJson" :key="question.id">
-    {{question.text}}
-  </p> -->
 
 </template>
 <script>
@@ -51,6 +46,7 @@
         })
       })
 
+      // decide the style of the tracking dots
       function dotStyle(index, questionID) {return{
         answered:questionTrack.value[index].answered,
         activeQ: questionID === index, 
@@ -93,9 +89,9 @@
       }
 
 
-      function nextQ (event) {
+      function nextQ (selectedAssociation) {
         //update questionTracking
-        const association = event.target.id
+        const association = selectedAssociation
         const currentQ = questionTrack.value[questionID.value]
         
         currentQ.answered = true;
