@@ -3,6 +3,7 @@
     <div class="QTrack">
       <!-- <div :class= "{'answered':question.answered, 'activeQ': questionID === index, 'unactiveQ':questionID != index}" v-for= "(question,index) in questionTrack" :key="index"></div> -->
       <div :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
+      <div class="unactiveQ"></div>
     </div>
     <h3 class="Q-text" >{{questionText}}</h3>
     <div class="option" v-for ="option in options" @click="nextQ(option.association)"> {{option.text}} </div>
@@ -14,7 +15,7 @@
 
 </template>
 <script>
-  import {ref, computed} from 'vue'
+  import {ref} from 'vue'
   import questionListJson from '@/assets/quiz/question-list.json'
   import resultListJson from '@/assets/quiz/result-list.json'
 
@@ -42,7 +43,7 @@
       questionTrack.value.forEach(question=>{
         question.answered = false,
         question.options.forEach(option=>{
-          option.selected = false
+        option.selected = false
         })
       })
 
@@ -65,7 +66,6 @@
 
       function changeQ(direction) {
         const newID = questionID.value + direction
-        console.log(newID);
         if(newID >=0 && newID <= numQ.value-1){
         questionID.value = questionID.value + direction
         getQ()
@@ -101,26 +101,32 @@
         //update questionTracking
         const association = selectedAssociation
         const currentQ = questionTrack.value[questionID.value]
-        
         currentQ.answered = true;
         currentQ.options.forEach(option=>{
           if(option.association === association) {
             option.selected = true
           } 
-          // else {if (option.selected === true){
-          //   option.selected = false
-          // }}
+          else {if (option.selected === true){   //check if other option have been selected before, if yes then make it unselected
+            option.selected = false
+          }}
         })
 
+        //check if all questions are answered
+        const finished = questionTrack.value.every((question)=>question.answered === true)
+        if (finished) {
+          context.emit('endGame', top())  //if all are answered then trigger end game
+        } else {changeQ(1)}   //if not, move to next question
+        
+
         //move to the next question
-        if (questionID.value != numQ.value - 1) {
-          questionID.value++
-          getQ()
-        } else {
-          console.log(resultTrack.value);
-          console.log(questionTrack.value);
-          context.emit('endGame', top())
-        }
+        // if (questionID.value != numQ.value - 1) {
+        //   questionID.value++
+        //   getQ()
+        // } else {
+        //   console.log(resultTrack.value);
+        //   console.log(questionTrack.value);
+        //   context.emit('endGame', top())
+        // }
       }
 
       return{
@@ -136,10 +142,12 @@
   .activeQ {
     height: 20px;
     width: 20px;
+    /* margin: 0 7px; */
   }
   .unactiveQ {
     width: 12px;
     height: 12px;
+    /* margin: 0 5px; */
   }
   .answered {
     background-color: rgb(238, 107, 107);
@@ -154,9 +162,8 @@
     
   }
   .QTrack div {
-    margin: 0 10px;
     border: solid;
-
+    margin: 0 5px;
   }
   .Q {
     background-color: white;
