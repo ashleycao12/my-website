@@ -7,7 +7,13 @@ body {
 
 button:hover {
   cursor: pointer;
+  background-color: rgb(236, 236, 236);
 }
 button {
   border-radius: 10px;
+  background-color: rgb(244, 244, 244);
+}
+
+button:active {
+  background-color: rgb(208, 208, 208);
 }
