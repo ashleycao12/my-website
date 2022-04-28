@@ -2,13 +2,13 @@
   <div class ="Q">
     <div class="QTrack">
       <!-- <div :class= "{'answered':question.answered, 'activeQ': questionID === index, 'unactiveQ':questionID != index}" v-for= "(question,index) in questionTrack" :key="index"></div> -->
-      <div :class= "dotStyle(index,questionID)" v-for= "(question,index) in questionTrack" :key="index"></div>
+      <div :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
     </div>
     <h3 class="Q-text" >{{questionText}}</h3>
-    <div class="option" v-for = "option in options" @click= "nextQ (option.association)"> {{option.text}} </div>
+    <div class="option" v-for ="option in options" @click="nextQ(option.association)"> {{option.text}} </div>
     <div class="changeQ">
-      <button>&lt;</button>
-      <button>&gt;</button>
+      <button @click="changeQ(-1)">&lt;</button>
+      <button @click="changeQ(1)">&gt;</button>
     </div>
   </div>
 
@@ -63,6 +63,14 @@
         weight.value = Number(questionListJson[questionID.value].weight)
       }
 
+      function changeQ(direction) {
+        const newID = questionID.value + direction
+        console.log(newID);
+        if(newID >=0 && newID <= numQ.value-1){
+        questionID.value = questionID.value + direction
+        getQ()
+        }
+      }
 
       function top() {   //calculate the result
         //extract quiz result from questionTrack
@@ -116,7 +124,7 @@
       }
 
       return{
-        nextQ, questionText, options, numQ, questionTrack, questionID, 
+        nextQ, questionText, options, numQ, questionTrack, questionID, changeQ,
         dotStyle
         // getQ,
       }
