@@ -1,7 +1,9 @@
 <template>
+  <div class="content">
+  <img class="resultImg" :src= "imgSrc" alt="No image available"/>
   <h2>This is the result:{{result}} </h2>
-  <img :src= "imgSrc" alt="No image available"/>
   <p>{{description}}</p>
+  </div>
 </template>
 
 <script>
@@ -27,5 +29,9 @@ export default {
 </script>
 
 <style>
-
+.resultImg {
+  width: 100%;
+  height: auto;
+  
+}
 </style>
