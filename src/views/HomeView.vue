@@ -18,7 +18,7 @@
     <img class="quizImg" src="@/assets/quiz/mixedBean.jpg" alt="no image">
     </div>
   </div>
-  <div class="project">place holder</div>
+  <div class="project" @click="goReactionGame">place holder</div>
 </template>
 
 <script>
@@ -28,7 +28,10 @@ export default {
     function goQuiz() {
       router.push({name:'quiz'})
     }
-    return{goQuiz}
+    function goReactionGame() {
+      router.push({name:'reactionGame'})
+    }
+    return{goQuiz,goReactionGame}
   }
 }
 </script>
@@ -81,6 +84,7 @@ export default {
     margin: 50px 150px;
     height: 400px;
     overflow: hidden;
+    cursor: pointer;
   }
   .quizImg {
     /* height: 90%; */
@@ -96,6 +100,5 @@ export default {
   }
   .projectQuiz:hover {
     transform: translate(0,-10px);
-    cursor: pointer;
   }
 </style>
