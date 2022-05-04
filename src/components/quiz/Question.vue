@@ -1,26 +1,48 @@
 <template>
+<!-- <transition-group name="list">
+  <div class="list-item" v-for="item in testList" :key="item">{{item}}</div>
+</transition-group>
+<button @click="changeList">change list</button> -->
+<!-- <p>{{time}}</p> -->
   <div class ="Q">
-    <div class="QTrack">
-      <!-- <div :class= "{'answered':question.answered, 'activeQ': questionID === index, 'unactiveQ':questionID != index}" v-for= "(question,index) in questionTrack" :key="index"></div> -->
+    <div class="Q2">
+     <div class="QTrack">
       <div :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
-      <div class="unactiveQ"></div>
+      <div class="inactiveQ"></div> 
     </div>
-    <h3 class="Q-text" >{{questionText}}</h3>
-    <div class="option" v-for ="option in options" @click="nextQ(option.association)"> {{option.text}} </div>
+
+    <TransitionGroup tag="div" :name="transitionQ">
+      <h3 class="Q-text" :key="questionID">{{questionText}}</h3>
+      <div class="option" :class="{'selected':option.selected}" v-for ="option in options" @click="nextQ(option.association)" :key="option"> {{option.text}} </div>
+    </TransitionGroup>
     <div class="changeQ">
       <button @click="changeQ(-1)">&lt;</button>
       <button @click="changeQ(1)">&gt;</button>
+    </div>
     </div>
   </div>
 
 </template>
 <script>
-  import {ref} from 'vue'
+  import {computed, ref} from 'vue'
   import questionListJson from '@/assets/quiz/question-list.json'
   import resultListJson from '@/assets/quiz/result-list.json'
 
   export default {
     setup(props, context){
+      // test animation
+      const testText = ref('abc')
+      const showTest = ref(true)
+      function toggleTest() {
+        testText.value = 'efg'
+      }
+      const testList = ref(["a","b","c"])
+      function changeList(){
+        testList.value = ["e","f","g"]
+      }
+      // const firstTime = ref(Date.now())
+      // const time = computed(() => Date.now() - firstTime.value)
+
       // declare and initialise variable
       const questionID = ref(0)
       const questionText = ref()
@@ -29,7 +51,7 @@
       const weight = ref()
       const numQ = ref(questionListJson.length)
       const questionTrack = ref(questionListJson)  //to track quiz progress and allow revisting past questions
-
+      const transitionQ = ref('slide-left')
       //create an array of object base on the list of result each with starting score of 0. The score will increase as user click
       resultListJson.forEach((result) => {   
         resultTrack.value.push({
@@ -51,7 +73,7 @@
       function dotStyle(index, questionID) {return{
         answered:questionTrack.value[index].answered,
         activeQ: questionID === index, 
-        unactiveQ:questionID != index
+        inactiveQ:questionID != index
       }}
 
 
@@ -66,6 +88,7 @@
 
       function changeQ(direction) {
         const newID = questionID.value + direction
+        if (direction === -1) {transitionQ.value = 'slide-right'} else {transitionQ.value = 'slide-left'}
         if(newID >=0 && newID <= numQ.value-1){
         questionID.value = questionID.value + direction
         getQ()
@@ -131,7 +154,9 @@
 
       return{
         nextQ, questionText, options, numQ, questionTrack, questionID, changeQ,
-        dotStyle
+        dotStyle, 
+        showTest, toggleTest, testText, testList, changeList, transitionQ
+        // time  // animation testing
         // getQ,
       }
     },
@@ -139,12 +164,44 @@
 </script>
 
 <style>
+  @keyframes slide-left {
+    0% {opacity:0; transform: translate(55px, 0);}
+    100% {opacity:1; transform: translate(0, 0);}
+
+  } 
+  @keyframes slide-right {
+    0% {opacity:0; transform: translate(-55px, 0);}
+    100% {opacity:1; transform: translate(0, 0);}
+
+  } 
+    .slide-left-enter-active{
+      animation: slide-left 0.3s ease 0.0001s;
+    }
+    .slide-right-enter-active{
+      animation: slide-right 0.3s ease 0.0001s;
+    }
+    .slide-left-leave-active{
+      display: none;
+    }
+    .slide-right-leave-active{
+      display: none;
+    }
+  .Q2 {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  /* .QBox-enter-active{
+    animation: slide-right 0.25s ease 0.0001s;
+  }
+  .QBox-leave-active{
+    display: none;
+  }  */
   .activeQ {
     height: 20px;
     width: 20px;
     /* margin: 0 7px; */
   }
-  .unactiveQ {
+  .inactiveQ {
     width: 12px;
     height: 12px;
     /* margin: 0 5px; */
@@ -168,10 +225,19 @@
   .Q {
     background-color: white;
     padding: 25px;
-    margin: 20px 250px;
+    margin-left: 200px;
+    margin-right: 200px;
     border-radius: 10px;
     text-align: left;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    /* height: 250px; */
+  }
+
+  .Q h3 {
+    /* background: blue; */
+    height: 40px;
   }
   .option{
     margin: 10px 0 0 0;
@@ -183,6 +249,13 @@
   .option:hover{
     background: rgb(239, 166, 144);
     transition: 0.2ms;
+  }
+  .option:active{
+    background: rgb(211, 121, 113);
+    transition: 1s;
+  }
+  .selected {
+    background: rgb(211, 121, 113);
   }
   .changeQ {
     margin-top: 20px;
@@ -198,7 +271,7 @@
   }
 
   .changeQ button:hover {
-    background-color: ;
+    background-color: rgb(238, 238, 238);
   }
   h3{
     margin: 5px 0 15px 0;
