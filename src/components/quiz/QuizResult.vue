@@ -30,8 +30,7 @@ export default {
 
 <style>
 .resultImg {
-  width: 100%;
-  height: auto;
+  
   
 }
 </style>

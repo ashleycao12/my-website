@@ -12,9 +12,5 @@ export default {
 </script>
 
 <style>
-  .content {
-    height: 900px;
-    margin: 0 250px;
-    background-color: rgb(109, 109, 109);
-  }
+ 
 </style>
