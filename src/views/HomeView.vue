@@ -13,12 +13,17 @@
       </div>
   </div>
   <div class="project" @click= "goQuiz">
-    <div class="projectQuiz">
+    <div class="projectContent">
     <h3>What type of bean are you? </h3>
-    <img class="quizImg" src="@/assets/quiz/mixedBean.jpg" alt="no image">
+    <img class="projectImg" src="@/assets/quiz/mixedBean.jpg" alt="no image">
     </div>
   </div>
-  <div class="project" @click="goReactionGame">place holder</div>
+  <div class="project" @click= "goReactionGame">
+    <div class="projectContent">
+    <h3>How close can you get? </h3>
+    <img class="projectImg" src="@/assets/reaction-game/thumbnail.png" alt="no image">
+    </div>
+  </div>
 </template>
 
 <script>
@@ -86,19 +91,19 @@ export default {
     overflow: hidden;
     cursor: pointer;
   }
-  .quizImg {
+  .projectImg {
     /* height: 90%; */
     width: 100%;
     object-fit: cover;
     vertical-align: bottom;
   }
-  .projectQuiz h3 {
+  .projectContent h3 {
     padding: 25px 10px 0;
   }
-  .projectQuiz {
+  .projectContent {
     transition: 0.3s ease;
   }
-  .projectQuiz:hover {
+  .projectContent:hover {
     transform: translate(0,-10px);
   }
 </style>
