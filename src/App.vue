@@ -5,9 +5,32 @@
     <router-link to="/">My project</router-link>
   </nav>
   <router-view/>
+  <!-- <img class="messageIcon" @click="openMes" src="@/assets/messageIcon.png" alt="no image"> -->
+  <MessageBot/>
 </template>
 
+<script setup>
+// import {ref} from 'vue'
+import MessageBot from './components/home/MessageBot.vue'
+// const showMes = ref(false)
+// function openMes(){
+//   showMes.value = true
+// }
+</script>
+
 <style>
+/* .messageIcon {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 65px;
+  height: auto;
+  border-radius: 32.5px;
+}
+.messageIcon:hover {
+  opacity: 0.9;
+  cursor: pointer;
+} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   /* -webkit-font-smoothing: antialiased;
