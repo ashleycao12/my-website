@@ -1,15 +1,51 @@
-[
-  {"style":"question",
-    "text":"Laborum "
-  },
-  {"style":"question",
-    "text":"Id magna amet est labore quis voluptate consectetur reprehenderit pariatur quis laboris."
-  },
-  {"style":"answer",
-    "text":"Laborum consectetur nisi ipsum consequat cupidatat."
-  },
-  {"style":"answer",
-    "text":"Laborum consectetur nisi ipsum consequat cupidatat."
-  }
-  
-]
+{
+  "greeting":["Hi I'm Ashley Bot.","How can I help you?"],
+  "questions": [
+    {"text":"Just want to say hello",
+      "answers":[
+        "Well hello there",
+        "Thank you for saying hi",
+        "Hope you like my website"
+      ]
+    },
+    {"text":"Questions about the website",
+      "answers":["Anything in particular you want to ask?"],
+      "questions":[
+        {"text":"What languagues did you use?",
+          "answers":[
+            "I used HTML, CSS and the JavaScript framework Vue"
+          ]
+        },
+        {"text":"How did you learn them?",
+          "answers":[
+            "I googled everything.", 
+            "My favorite sites: Youtube, Stackoverflow, w3schools"
+          ]
+        },
+        {"text":"How long did it take?",
+          "answers":[
+            "It took me 1 weeks to learn the basic",
+            "And 3 more weeks to build the website. So around 1 month in total"
+          ]
+        }
+
+      ]
+    },
+    
+    {"text":"What's your next project?",
+      "answers":[
+        "I want to learn back-end web development",
+        "I want to build a note tool that have powerful search and filter function.",
+        "I'm thinking of using Django since I have experience with Python"
+      ]
+    },
+    {"text":"How can I contact you?",
+      "answers":[
+        "I'm working on the direct message function",
+        "In the meantime. Hope you don't mind leaving me a message on LinkedIn",
+        "Or email me at ashleycao12@gmail.com"
+      ]
+    }
+
+  ]
+}
