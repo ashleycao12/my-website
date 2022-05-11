@@ -2,52 +2,38 @@
 <div class="messageIcon" @click="toggleShowMes">
   <img class="mesIconImg"  src="@/assets/messageIcon.png" alt="no image">
 </div>
-<!-- <MessageBot v-if="showMesBox"/> -->
-  <div class="mesBox" v-if="showMesBox">
-    <div class="nameBar">
-      <div class="botName">
-        <h3>
-          Ashley Bot
-        </h3> 
-        <p>Ask me a question</p>
-        </div>
-      <button class="closeButton" @click="toggleShowMes">&#10006;</button>
-    </div>
+
+<div class="mesBox" v-if="showMesBox">
+  <div class="nameBar">
+    <div class="botName">
+      <h3>
+        Ashley Bot
+      </h3> 
+      <p>Ask me a question</p>
+      </div>
+    <button class="closeButton" @click="toggleShowMes">&#10006;</button>
+  </div>
+
   <div id="mesContent" ref="contentRef">
-    <transition-group name="delay">
-      <div class="textBubble" :class="item.style" v-for="(item,index) in messages" :key="index">{{item.text}}</div>
-    </transition-group>
-    <div :class="showOptions1"> 
+    <div class="textBubble" :class="item.style" v-for="(item,index) in messages" :key="index">{{item.text}}</div>
+    
+    <div :class="visibility"> 
       <div class="options" @click="reply(item,index)" v-for="(item,index) in options" :key="item">{{item}}</div>
     </div>
-     <!-- <div class="textBubble" :class="item.style" v-for="item in messages" :key="item">{{item.text}}</div>
-      <div class="options" v-for="item in chatOptions" :key="item">{{item}}</div> -->
-    <!-- <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p> -->
-    </div>
   </div>
+</div>
 </template>
 
 <script setup>
   import {ref, nextTick} from 'vue'
   import messagesJson from '@/assets/home/messages.json' 
 
-  const showMesBox = ref(true)   
+  const showMesBox = ref(false)   
   const messages = ref([])  //all messages (both questions and answers) that will show in the chatbox
   const options = ref([])  //all of the options that user can click on
   const quesList = ref(messagesJson.questions)
   const quesList_unfiltered = ref(messagesJson.questions)  //to filter out the chosen option
-  // const answers = ref([])
-  const showOptions = ref(true)
-  const showOptions1 = ref('visible')
+  const visibility = ref('visible')
   const contentRef = ref(null)
   const lastReply = ref('')
   const atSubQues = ref('false')
@@ -57,6 +43,7 @@
   const anythingElse = 'Anything else I can help?'
   const anythingElse1 = 'Anything other question in this topic?'
 
+  //set up 
   lastReply.value = anythingElse
 
   messagesJson.greeting.forEach(item => {
@@ -66,7 +53,7 @@
         text: item
       }
     )
-  });
+  })
   getOptions()
   
 
@@ -76,12 +63,13 @@
   }
 
   function reply(selection, index){
-    // showOptions.value = false
-    showOptions1.value = 'invisible'
+    // visibility.value = false
+    // console.log('when click:',quesList.value);
+    visibility.value = 'invisible'
     //show user's selection in the chat box as a message
     messages.value.push({
       style:"question",
-      text: selection
+      text: selection.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')
     })
     //show all the answers for the question in the chat box 
     const answers =  quesList.value[index].answers.slice() // get a new list of answers from the selected question
@@ -97,7 +85,7 @@
 
     /// decide if the chosen question has sub questions inside
     else if (quesList.value[index].questions != undefined) {
-      quesList_unfiltered.value = quesList_unfiltered.value[index].questions.slice()    // if yes, move to the new question level
+      quesList_unfiltered.value = quesList.value[index].questions.slice()    // if yes, move to the new question level
       quesList_unfiltered.value.push(backOutOption)
       quesList.value = quesList_unfiltered.value.slice()
       atSubQues.value = true
@@ -111,7 +99,7 @@
       quesList.value = quesList_unfiltered.value.slice()
       //filter out the chosen option
       quesList.value = quesList.value.filter((question)=>question.text != selection)
-      console.log(quesList.value);
+      console.log(quesList_unfiltered.value);
       getOptions()
     }
 
@@ -120,6 +108,24 @@
   }
 
  ////*** Contributing functions ***//// 
+
+  // function reset() {
+  //   messages.value = [] 
+  //   quesList.value = messagesJson.questions
+  //   quesList_unfiltered.value = messagesJson.questions
+  //   lastReply.value = anythingElse
+
+  //   messagesJson.greeting.forEach(item => {
+  //     messages.value.push(
+  //       {
+  //         style:"answer",
+  //         text: item
+  //       }
+  //     )
+  //   })
+  //   getOptions()
+  // }
+
   function getOptions (){
     options.value = quesList.value.map((item)=>item.text)
   }
@@ -145,7 +151,7 @@
       if (i === mesList.length) {   // check if the all new messages are added
         clearInterval(intervalID)
         setTimeout(() => {
-          showOptions1.value = 'visible'
+          visibility.value = 'visible'
           scroll()
         }, 1500)
         
@@ -160,22 +166,29 @@
 <style>
 .invisible {
   visibility: hidden;
+  margin-top: 20px;
 }
 .visible {
+  margin-top: 20px;
   visibility:visible;
 }
 
 .options {
-  background-color: rgba(255, 208, 173, 0.525);
+  background-color: rgba(253, 225, 196, 0.306);
   margin: 10px;
   padding: 10px;
   width: fit-content;
   max-width: 70%;
   text-align: left;
+  font-family: system-ui, Biotif-Regular ,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(89, 38, 20);
 }
 .options:hover {
+  background-color: rgb(253, 225, 196);
   cursor: pointer;
-  background-color: rgb(255, 208, 173);
+  opacity: 1;
 }
 #mesContent {
   /* background-color: blue; */
@@ -213,6 +226,13 @@
   height:45px ;
   width: 45px;
   margin-right: 10px;
+  color: white;
+  background-color:  rgb(33, 33, 33);
+  border: none;
+  font-size: large;
+}
+.closeButton:hover {
+  background-color: rgb(55, 55, 55);
 }
 .botName {
   flex: 1;
@@ -238,8 +258,8 @@
   overflow: hidden;
   background-color: white;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.139);
-  font-size: 15px;
-  font-family: Calibri, sans-serif
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
 }
 .messageIcon {
   background-color: white;
