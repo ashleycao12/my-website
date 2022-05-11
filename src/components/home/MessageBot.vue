@@ -17,7 +17,7 @@
     <transition-group name="delay">
       <div class="textBubble" :class="item.style" v-for="(item,index) in messages" :key="index">{{item.text}}</div>
     </transition-group>
-    <div v-if="showOptions">
+    <div :class="showOptions1"> 
       <div class="options" @click="reply(item,index)" v-for="(item,index) in options" :key="item">{{item}}</div>
     </div>
      <!-- <div class="textBubble" :class="item.style" v-for="item in messages" :key="item">{{item.text}}</div>
@@ -37,22 +37,27 @@
 </template>
 
 <script setup>
-  import {ref, onMounted, nextTick} from 'vue'
+  import {ref, nextTick} from 'vue'
   import messagesJson from '@/assets/home/messages.json' 
 
   const showMesBox = ref(true)   
   const messages = ref([])  //all messages (both questions and answers) that will show in the chatbox
   const options = ref([])  //all of the options that user can click on
   const quesList = ref(messagesJson.questions)
+  const quesList_unfiltered = ref(messagesJson.questions)  //to filter out the chosen option
+  // const answers = ref([])
   const showOptions = ref(true)
-  
+  const showOptions1 = ref('visible')
   const contentRef = ref(null)
-  onMounted(() => {
-    console.log(contentRef.value.id); 
-  })
-//  questions.value.forEach((item,index) => {
-//     options.value.push(item.text)
-//   });
+  const lastReply = ref('')
+  const atSubQues = ref('false')
+  
+  //non-reactive variables
+  const backOutOption = {text: "No, I want to ask more general questions", answers: ["Sure. How can I help?"]}
+  const anythingElse = 'Anything else I can help?'
+  const anythingElse1 = 'Anything other question in this topic?'
+
+  lastReply.value = anythingElse
 
   messagesJson.greeting.forEach(item => {
     messages.value.push(
@@ -64,42 +69,61 @@
   });
   getOptions()
   
-  // messages.value =  messagesJson.greeting.map(getAnswer)
 
+  /////// ***Reactive functions*** ///////
   function toggleShowMes(){   //show and hide chatbox
     showMesBox.value = !showMesBox.value
   }
-  
 
-  function reply(question, index){
-    showOptions.value = false
+  function reply(selection, index){
+    // showOptions.value = false
+    showOptions1.value = 'invisible'
     //show user's selection in the chat box as a message
     messages.value.push({
       style:"question",
-      text: question
+      text: selection
     })
     //show all the answers for the question in the chat box 
-    const answers =  quesList.value[index].answers // get a list of answer
-    addMes(answers)
+    const answers =  quesList.value[index].answers.slice() // get a new list of answers from the selected question
     
-    
-    // decide if the chosen question has more sub question
-    if (quesList.value[index].questions != undefined) {
-      quesList.value = quesList.value[index].questions
+    /// decide if the user is in sub questions series and choose to go back
+    if (atSubQues.value && selection === backOutOption.text){ 
+      quesList_unfiltered.value = messagesJson.questions  //reset to the original question list
+      quesList.value = quesList_unfiltered.value.slice()  //reset to the original question list
+      atSubQues.value = false
+      lastReply.value = anythingElse
       getOptions()
     }
+
+    /// decide if the chosen question has sub questions inside
+    else if (quesList.value[index].questions != undefined) {
+      quesList_unfiltered.value = quesList_unfiltered.value[index].questions.slice()    // if yes, move to the new question level
+      quesList_unfiltered.value.push(backOutOption)
+      quesList.value = quesList_unfiltered.value.slice()
+      atSubQues.value = true
+      lastReply.value = anythingElse1
+      getOptions()
+    } 
+    //if none of the above special cases are true
+    else { 
+      answers.push(lastReply.value)
+      //reset the quesList back to unfiltered list, so that the final list only exclude the current selection
+      quesList.value = quesList_unfiltered.value.slice()
+      //filter out the chosen option
+      quesList.value = quesList.value.filter((question)=>question.text != selection)
+      console.log(quesList.value);
+      getOptions()
+    }
+
+    addMes(answers)
     scroll()
   }
 
-  
-  
-  function getQuesText(question){
-    return question.text
+ ////*** Contributing functions ***//// 
+  function getOptions (){
+    options.value = quesList.value.map((item)=>item.text)
   }
 
-  function getOptions (){
-    options.value = quesList.value.map(getQuesText)
-  }
   function scroll() {
     nextTick(()=>{
     contentRef.value.scrollTop = contentRef.value.scrollHeight
@@ -107,14 +131,6 @@
   })
   }
    
-
-
-  // function getAnswer(answer) {
-  //   return {
-  //     style:"answer",
-  //     text: answer
-  //   }
-  // }
 
   function addMes(mesList) {      //function to add new message to the chain one by one with a delay
     let i = 0
@@ -129,13 +145,13 @@
       if (i === mesList.length) {   // check if the all new messages are added
         clearInterval(intervalID)
         setTimeout(() => {
-          showOptions.value = true
+          showOptions1.value = 'visible'
           scroll()
-        }, 1200)
+        }, 1500)
         
       }
       // console.log(content.scrollHeight);
-    },1200)
+    },1500)
     
   }
 
@@ -145,15 +161,10 @@
 .invisible {
   visibility: hidden;
 }
-.delay-enter-active {
-  animation-name: popup;
-  /* animation-duration: 1s; */
-  }
-@keyframes popup {
-  0% {opacity: 0;}
-  99%{opacity: 0;}
-  100% {opacity: 1;}
+.visible {
+  visibility:visible;
 }
+
 .options {
   background-color: rgba(255, 208, 173, 0.525);
   margin: 10px;

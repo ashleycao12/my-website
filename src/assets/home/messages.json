@@ -16,29 +16,29 @@
             "I used HTML, CSS and the JavaScript framework Vue"
           ]
         },
-        {"text":"How did you learn them?",
+        {"text":"How long did it take to build?",
           "answers":[
-            "I googled everything.", 
-            "My favorite sites: Youtube, Stackoverflow, w3schools"
-          ]
-        },
-        {"text":"How long did it take?",
-          "answers":[
-            "It took me 1 weeks to learn the basic",
+            "It took me 1 week to learn the basic of front-end web delopment",
             "And 3 more weeks to build the website. So around 1 month in total"
           ]
+        }, 
+        {"text":"What's your next project?",
+          "answers":[
+            "I want to learn back-end web development",
+            "I want to build a note tool that have powerful search and filter function.",
+            "I'm thinking of using Django since I have experience with Python"
+          ]
         }
-
       ]
     },
     
-    {"text":"What's your next project?",
+    {"text":"Tips for learning programming?",
       "answers":[
-        "I want to learn back-end web development",
-        "I want to build a note tool that have powerful search and filter function.",
-        "I'm thinking of using Django since I have experience with Python"
+        "Google everything.", 
+        "My favorite sites: Youtube, Stackoverflow, w3schools"
       ]
     },
+    
     {"text":"How can I contact you?",
       "answers":[
         "I'm working on the direct message function",
