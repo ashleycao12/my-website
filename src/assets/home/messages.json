@@ -1,28 +1,28 @@
 {
   "greeting":["Hi I'm Ashley Bot.","How can I help you?"],
   "questions": [
-    {"text":"Just want to say hello",
+    {"text":"👋 Just want to say hello",
       "answers":[
         "Well hello there",
-        "Thank you for saying hi",
+        "Thank you for saying hi 😁",
         "Hope you like my website"
       ]
     },
-    {"text":"Questions about the website",
+    {"text":"🤓 Questions about the website",
       "answers":["Anything in particular you want to ask?"],
       "questions":[
-        {"text":"What languagues did you use?",
+        {"text":"🤖 What languagues did you use?",
           "answers":[
             "I used HTML, CSS and the JavaScript framework Vue"
           ]
         },
-        {"text":"How long did it take to build?",
+        {"text":"⌛ How long did it take to build?",
           "answers":[
             "It took me 1 week to learn the basic of front-end web delopment",
             "And 3 more weeks to build the website. So around 1 month in total"
           ]
         }, 
-        {"text":"What's your next project?",
+        {"text":"🤔 What's your next project?",
           "answers":[
             "I want to learn back-end web development",
             "I want to build a note tool that have powerful search and filter function.",
@@ -32,14 +32,14 @@
       ]
     },
     
-    {"text":"Tips for learning programming?",
+    {"text":"✍ Tips for learning programming?",
       "answers":[
         "Google everything.", 
         "My favorite sites: Youtube, Stackoverflow, w3schools"
       ]
     },
     
-    {"text":"How can I contact you?",
+    {"text":"📲 How can I contact you?",
       "answers":[
         "I'm working on the direct message function",
         "In the meantime. Hope you don't mind leaving me a message on LinkedIn",

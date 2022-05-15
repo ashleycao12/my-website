@@ -1,7 +1,7 @@
 <template>
   <div class="content">
   <img class="resultImg" :src= "imgSrc" alt="No image available"/>
-  <h2>This is the result:{{result}} </h2>
+  <h2>{{result}} <span v-if="result==='Beansprouts'">(boomer bean)</span> </h2>
   <p>{{description}}</p>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
     resultList.forEach(currentItem => {
       if (currentItem.name === result.value) {
         description.value = currentItem.description
-        imgSrc.value = require('@/assets/result-images/' + currentItem.imgSrc)
+        imgSrc.value = require('@/assets/quiz/' + currentItem.imgSrc)
         console.log(currentItem.imgSrc);
       }
     });    
@@ -28,9 +28,8 @@ export default {
 }
 </script>
 
-<style>
-.resultImg {
-  
-  
+<style scoped>
+p {
+  padding: 0 20px 20px;
 }
 </style>

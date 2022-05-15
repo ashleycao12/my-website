@@ -1,10 +1,10 @@
 <template>
   <div class="intro">
     <div class="text">
-      <h1>Hi I'm Ashley</h1>
+      <h1>Hi. I'm Ashley</h1>
       <p>I'm a programming enthusiast who would love to become a web developer.</p>
     </div>
-      <div class= "gif placeholder">
+      <div class= "gif">
         <div class="eyes">
           <div></div>
           <div></div>
@@ -41,19 +41,20 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
   .eyes {
     background-color: rgb(0, 0, 0);
     margin: 35% 32% 0;
     display: flex;
     justify-content: space-between;
+    position: static;
   }
   .eyes div{
     background-color: white;
+    position: inherit;
     height: 40px;
     width: 30px;
-    animation: blink 3s linear 0.0001s infinite forwards;
+    animation: blink 3s linear 0.0001s infinite;
   }
   @keyframes blink {
     0% {transform: scaleY(0.1) scaleX(1.4);}
@@ -67,15 +68,23 @@ export default {
     display: flex;
     flex-direction: row;
     margin: 50px;
-    /* background-color: orange; */
+    /* font-family:  system-ui, Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif; */
     height: 500px;
   }
   .intro>.text {
     flex: 1;
     padding: 150px 50px;
   }
+
+  .text p {
+    margin: 0;
+    font-size: 19px;
+  }
+  .text h1 {
+    margin: 0;
+  }
   .gif {
-    width: 450px;
+    flex:1.1;
     /* height: 500px; */
     background-color: rgb(0, 0, 0);
   }
@@ -86,10 +95,14 @@ export default {
   }
   .project {
     background: white;
-    margin: 50px 150px;
+    margin: 100px 150px;
     height: 400px;
     overflow: hidden;
     cursor: pointer;
+    transition: all 0.15s;
+  }
+  .project:hover{
+    box-shadow: 0px 40px 40px 20px rgba(0, 0, 0, 0.141);
   }
   .projectImg {
     /* height: 90%; */
@@ -105,5 +118,6 @@ export default {
   }
   .projectContent:hover {
     transform: translate(0,-10px);
+    
   }
 </style>

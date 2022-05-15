@@ -5,32 +5,16 @@
     <router-link to="/">My project</router-link>
   </nav>
   <router-view/>
-  <!-- <img class="messageIcon" @click="openMes" src="@/assets/messageIcon.png" alt="no image"> -->
   <MessageBot/>
 </template>
 
 <script setup>
-// import {ref} from 'vue'
+
 import MessageBot from './components/home/MessageBot.vue'
-// const showMes = ref(false)
-// function openMes(){
-//   showMes.value = true
-// }
+
 </script>
 
 <style>
-/* .messageIcon {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 65px;
-  height: auto;
-  border-radius: 32.5px;
-}
-.messageIcon:hover {
-  opacity: 0.9;
-  cursor: pointer;
-} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   /* -webkit-font-smoothing: antialiased;
@@ -45,8 +29,9 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 100;
   height: 20px;
-  background-color: rgb(255, 240, 220);
+  background-color: rgb(255, 245, 238);
 }
 
 nav a {
@@ -58,14 +43,19 @@ nav a {
   text-decoration: none;
   margin-left:15px ;
   margin-right:15px ;
-  color: rgb(83, 83, 83)
+  color: rgb(0, 0, 0);
+  font-family:  "Biotif", system-ui, Helvetica Neue, Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+  transition: all 0.15s;
 }
 
 nav a:hover{
-  background: rgb(253, 210, 150);
+  background: rgb(255, 233, 176);
   color: rgb(50, 50, 50);
   margin-left:50px ;
   margin-right:50px ;
+  font-size: 22px;
 }
 
 nav a.router-link-exact-active {

@@ -1,24 +1,90 @@
 [
   {
-    "weight":"1",
-    "text":"Officia dolor amet qui dolor amet nisi amet quis incididunt duis.",
+    "weight":"1.3",
+    "text":"An activity you'd do in your free time?",
     "options":[{
-      "association" : "Coffee bean",
-      "text": "Sint enim nisi tempor mollit cupidatat velit."
+      "association" : "Jelly bean",
+      "text": "Using social media"
     },{
       "association" : "Beansprouts",
-      "text": "Reprehenderit labore nisi deserunt ullamco tempor non."
+      "text": "Reading"
+    }]
+  },
+  {
+    "weight":"1.3",
+    "text":"A friend keeps saying that they hate their job. You will",
+    "options":[{
+      "association" : "Coffee bean",
+      "text": "Tell them to stop complaining and start doing something about it"
+    },{
+      "association" : "Soya bean",
+      "text": "Actively help them solve the problem (sending them job ads, etc.)"
+    }]
+  },
+  {
+    "weight":"1.2",
+    "text":"A friend is having a presentation in a couple of days and they're super nervous.",
+    "options":[{
+      "association" : "Coffee bean",
+      "text": "Ask them to practice on you. They're not getting any sleep before they deliver it well"
+    },{
+      "association" : "Jelly bean",
+      "text": "Drag them to town to have fun. Thinking about it just make them more nervous"
+    }]
+  },
+  {
+    "weight":"1.2",
+    "text":"How do you like to spend time with others?",
+    "options":[{
+      "association" : "Soya bean",
+      "text": "Outdoor activities like running and swimming."
+    },{
+      "association" : "Beansprouts",
+      "text": "Wine, craft beer and quality talk"
     }]
   },
   {
     "weight":"1.1",
-    "text":"Qui aliqua consectetur pariatur ea ea magna tempor minim quis id",
+    "text":"You and your friends are having a get-together at your place. You will",
     "options":[{
       "association" : "Soya bean",
-      "text": "Magna minim aliquip nostrud anim excepteur ad adipisicing nostrud."
+      "text": " Make sure you have load of food"
+      },{
+        "association" : "Jelly bean",
+        "text": "Make sure you have load of alcohol"
+        }]
+  },
+  {
+    "weight":"1.1",
+    "text":"You're working on a project. Your teammate is sick and the deadline is close. You will",
+    "options":[{
+      "association" : "Coffee bean",
+      "text": "Work extra hours to meet the deadline"
+    },{
+      "association" : "Beansprouts",
+      "text": "Work life balance. The project will have to wait"
+    }]
+  },
+  {
+    "weight":"1",
+    "text":"Which statement is (or would be) more true?",
+    "options":[{
+      "association" : "Soya bean",
+      "text": "You and your best friend quickly got along when you guys first met"
     },{
       "association" : "Jelly bean",
-      "text": "Quis consequat reprehenderit consequat officia aliqua culpa magna."
+      "text": "You and your best friend didn't like each other when you guys first met"
+    }]
+  },
+  {
+    "weight":"1",
+    "text":"Which joke below do you like less?",
+    "options":[{
+      "association" : "Jelly bean",
+      "text": "My wife and I were happy for twenty years. Then we met."
+      },{
+      "association" : "Beansprouts",
+      "text": "You may think I'm a horrible person but deep down, I'm even worse"
     }]
   }
 ]

@@ -163,7 +163,7 @@
 
 </script>
 
-<style>
+<style scoped>
 .invisible {
   visibility: hidden;
   margin-top: 20px;
@@ -246,9 +246,9 @@
  align-items: center;
 }
 .mesBox {
+  z-index: 101;
   display: flex;
   flex-direction: column;
-
   position: fixed;
   bottom: 40px;
   right: 40px;

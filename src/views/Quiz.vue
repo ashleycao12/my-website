@@ -1,11 +1,10 @@
 <template>
-<!-- <div class="content"> -->
-
- <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+<h2 v-if="status === 'playing'">Quiz time!</h2>
  <div class="content" v-if="status === 'intro'">
    <!-- <div class="startPhoto">Place holder</div> -->
    <img src="@/assets/quiz/mixedBean.jpg" alt="no image">
-   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis voluptates unde harum, atque, quae a, vel quaerat repudiandae molestiae modi quia culpa velit architecto rerum eum officia veniam aperiam quasi. Ducimus ut neque quo amet, odio rem delectus nam deleniti illo animi iste assumenda quasi recusandae rerum perspiciatis non cumque repudiandae distinctio blanditiis dignissimos aperiam quam accusamus ipsam laudantium. Minus autem enim aspernatur cumque praesentium perferendis a provident maiores magnam quaerat? Voluptas, dolore dolor? Dolorum, magni! Iure repellendus veritatis eligendi, fuga dignissimos magni debitis assumenda ratione error rem magnam asperiores itaque pariatur aspernatur a animi qui quaerat quos non illo!</p>
+   <h2>What kind of bean are you?</h2>
+   <p>Don't we all like beans? Let's do a fun little quiz to find out what kind of bean you are.</p>
    <button class="startButton" @click="start">Start</button>
  </div>
  <Question v-if="status === 'playing'" @endGame="showResult"/>

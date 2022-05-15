@@ -1,16 +1,29 @@
+@font-face {
+  font-family: "Bogart";
+  src: local("Bogart"),
+   url(../assets/fonts/Bogart-Regular-trial.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Biotif";
+  src: local("Biotif"),
+   url(../assets/fonts/Biotif-Regular.ttf) format("truetype");
+}
 body {
-  background-color: rgb(255, 240, 220);
+  background-color: rgb(255, 245, 238);
   color: rgb(73, 73, 73);
   text-align: center;
   padding-top: 80px;
+  /* font-family:  system-ui, Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif; */
 }
 .content {
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
   width: 60%;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   overflow: hidden;
+  padding-bottom: 40px;
 }
 div {
   border-radius: 20px;
@@ -21,14 +34,24 @@ img {
 }
 p {
   margin: 20px 30px;
+  font-family:  "Biotif", system-ui, Helvetica Neue, Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  color: rgb(105, 105, 105);
+  padding: 0 20px;
+  text-align: left;
+}
+h1 {
+  font-family: "Bogart", sans-serif;
+  font-size: 70px;
+  color: black;
 }
 button:hover {
   cursor: pointer;
-  background-color: rgb(236, 236, 236);
+  /* background-color: rgb(236, 236, 236); */
 }
 button {
   border-radius: 10px;
-  background-color: rgb(244, 244, 244);
+  /* background-color: rgb(244, 244, 244); */
 }
 
 button:active {

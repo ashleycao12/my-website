@@ -1,14 +1,9 @@
 <template>
-<!-- <transition-group name="list">
-  <div class="list-item" v-for="item in testList" :key="item">{{item}}</div>
-</transition-group>
-<button @click="changeList">change list</button> -->
-<!-- <p>{{time}}</p> -->
   <div class ="Q">
     <div class="Q2">
      <div class="QTrack">
       <div :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
-      <div class="inactiveQ"></div> 
+      <!-- <div class="inactiveQ"></div>  -->
     </div>
 
     <TransitionGroup tag="div" :name="transitionQ">
@@ -24,25 +19,12 @@
 
 </template>
 <script>
-  import {computed, ref} from 'vue'
+  import {ref} from 'vue'
   import questionListJson from '@/assets/quiz/question-list.json'
   import resultListJson from '@/assets/quiz/result-list.json'
 
   export default {
     setup(props, context){
-      // test animation
-      const testText = ref('abc')
-      const showTest = ref(true)
-      function toggleTest() {
-        testText.value = 'efg'
-      }
-      const testList = ref(["a","b","c"])
-      function changeList(){
-        testList.value = ["e","f","g"]
-      }
-      // const firstTime = ref(Date.now())
-      // const time = computed(() => Date.now() - firstTime.value)
-
       // declare and initialise variable
       const questionID = ref(0)
       const questionText = ref()
@@ -61,7 +43,6 @@
       })
 
       // put the question list to a new variable
-      // questionTrack.value = questionListJson
       questionTrack.value.forEach(question=>{
         question.answered = false,
         question.options.forEach(option=>{
@@ -139,25 +120,11 @@
         if (finished) {
           context.emit('endGame', top())  //if all are answered then trigger end game
         } else {changeQ(1)}   //if not, move to next question
-        
-
-        //move to the next question
-        // if (questionID.value != numQ.value - 1) {
-        //   questionID.value++
-        //   getQ()
-        // } else {
-        //   console.log(resultTrack.value);
-        //   console.log(questionTrack.value);
-        //   context.emit('endGame', top())
-        // }
       }
 
       return{
         nextQ, questionText, options, numQ, questionTrack, questionID, changeQ,
-        dotStyle, 
-        showTest, toggleTest, testText, testList, changeList, transitionQ
-        // time  // animation testing
-        // getQ,
+        dotStyle, transitionQ
       }
     },
   }
@@ -190,12 +157,6 @@
     margin-left: 40px;
     margin-right: 40px;
   }
-  /* .QBox-enter-active{
-    animation: slide-right 0.25s ease 0.0001s;
-  }
-  .QBox-leave-active{
-    display: none;
-  }  */
   .activeQ {
     height: 20px;
     width: 20px;

@@ -1,24 +1,24 @@
 [
   {
     "name": "Coffee bean",
-    "description": "Amet exercitation mollit deserunt excepteur amet aute aliquip fug",
+    "description": "Not everyone likes you. But the one that do can't get enough of you.",
     "imgSrc":"Coffee-bean.jpg"
   },
   {
     "name": "Soya bean",
-    "description": "Adipisicing cillum commodo occaecat reprehenderit dolore occaecat.",
+    "description": "You motivate others to be the better version of themselves. You're also the helpful one in the group. So sometimes people hangout with you because they need you, not necessarily because they like you.",
     "imgSrc":"Soya-bean.jpg"
 
   },
   {
     "name": "Beansprouts",
-    "description": "Eu proident fugiat amet nostrud.",
+    "description": "You're calm collected and confident in what you're doing. But sometimes other beans may call you an old person as a joke and you don't always disagree.",
     "imgSrc":"Beansprouts.jpg"
 
   },
   {
     "name": "Jelly bean",
-    "description": "Lorem non dolor culpa minim ut.",
+    "description": "You're like the devil on people's shoulder that keep telling them to forget their responsibility and have fun.",
     "imgSrc":"Jelly-bean.jpg"
 }
 ]
