@@ -2,7 +2,7 @@
   <div class="intro">
     <div class="text">
       <h1>Hi. I'm Ashley</h1>
-      <p>I'm a programming enthusiast who would love to become a web developer.</p>
+      <p>I'm a self-taught fron-end developer. Below are some of my mini projects.</p>
     </div>
       <div class= "gif">
         <div class="eyes">
@@ -12,33 +12,35 @@
           <img src="@/assets/home/smile.png" alt="">
       </div>
   </div>
-  <div class="project" @click= "goQuiz">
+  <div class="project" ref="project1" @click= "goQuiz">
     <div class="projectContent">
-    <h3>What type of bean are you? </h3>
+    <h3>Quiz: What kind of bean are you? </h3>
     <img class="projectImg" src="@/assets/quiz/mixedBean.jpg" alt="no image">
     </div>
   </div>
   <div class="project" @click= "goReactionGame">
     <div class="projectContent">
-    <h3>How close can you get? </h3>
+    <h3>Mini game: How close can you get? </h3>
     <img class="projectImg" src="@/assets/reaction-game/thumbnail.png" alt="no image">
     </div>
   </div>
 </template>
 
-<script>
-import router from '@/router'
-export default {
-  setup(){
-    function goQuiz() {
-      router.push({name:'quiz'})
-    }
-    function goReactionGame() {
-      router.push({name:'reactionGame'})
-    }
-    return{goQuiz,goReactionGame}
+<script setup>
+  import router from '@/router'
+  import {watch, ref} from 'vue'
+  const props = defineProps({projectClick: Number})
+  const project1 = ref(null)
+  watch(() => props.projectClick, ()=>{
+    project1.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  })
+  function goQuiz() {
+    router.push({name:'quiz'})
   }
-}
+  function goReactionGame() {
+    router.push({name:'reactionGame'})
+  }
+  
 </script>
 
 <style scoped>
@@ -78,6 +80,7 @@ export default {
 
   .text p {
     margin: 0;
+    padding: 0;
     font-size: 19px;
   }
   .text h1 {
