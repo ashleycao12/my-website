@@ -43,8 +43,12 @@
     margin: 20px 200px 20px;
   }
   .startButton {
-    padding: 10px 20px;
-    background-color: palevioletred;
+    padding: 15px 35px;
+    background-color:  rgb(225, 103, 117);
     border: none;
+    font-size: 20px;
+  }
+  .startButton:hover {
+    background-color: rgba(234, 134, 134, 0.849);
   }
 </style>

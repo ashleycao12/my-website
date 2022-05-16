@@ -209,6 +209,7 @@
   }
   .option:hover{
     background: rgb(239, 166, 144);
+    cursor: pointer;
     transition: 0.2ms;
   }
   .option:active{

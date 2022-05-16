@@ -5,11 +5,12 @@
 
 <div class="mesBox" v-if="showMesBox">
   <div class="nameBar">
+    <img src="@/assets/profile-pic.jpg" alt="">
     <div class="botName">
       <h3>
         Ashley Bot
       </h3> 
-      <p>Ask me a question</p>
+      <p>Ask me a question!</p>
       </div>
     <button class="closeButton" @click="toggleShowMes">&#10006;</button>
   </div>
@@ -26,7 +27,7 @@
 
 <script setup>
   import {ref, nextTick} from 'vue'
-  import messagesJson from '@/assets/home/messages.json' 
+  import messagesJson from '@/assets/messageBot/messages.json' 
 
   const showMesBox = ref(false)   
   const messages = ref([])  //all messages (both questions and answers) that will show in the chatbox
@@ -237,6 +238,26 @@
 .botName {
   flex: 1;
   color: white;
+  text-align: left;
+  margin-left: 20px;
+}
+.nameBar img {
+  width: 40px;
+  border-radius: 30px;
+  margin-left: 20px;
+  border: solid;
+  border-color: white;
+}
+h3 {
+  padding: 0;
+  margin: 0;
+  margin-bottom:5px ;
+}
+p {
+  padding: 0;
+  margin: 0;
+  color: rgb(184, 184, 184);
+  font-size: 15px;
 }
 .nameBar {
   height: 80px;
@@ -253,7 +274,9 @@
   bottom: 40px;
   right: 40px;
   width: 30%;
+  max-width: 400px;
   height: 90%;
+  max-height: 700px;
   border-radius: 10px;
   overflow: hidden;
   background-color: white;

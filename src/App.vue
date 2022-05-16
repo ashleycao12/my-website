@@ -24,7 +24,7 @@
 <script setup>
 import {ref, computed} from 'vue'
 import { useRoute } from 'vue-router';
-import MessageBot from './components/home/MessageBot.vue'
+import MessageBot from './components/MessageBot.vue'
 const projectClick = ref(0)
 const route = useRoute()
 // const projectActive = ref(false)
@@ -71,7 +71,7 @@ nav {
   right: 0;
   z-index: 100;
   height: 20px;
-  background-color: rgb(255, 245, 238);
+  background-color:rgb(255, 251, 219);
 }
 
 nav a {
@@ -91,7 +91,7 @@ nav a {
 }
 
 .nav a:hover{
-  background: rgb(255, 233, 176);
+  background: rgb(255, 215, 172);
   color: rgb(50, 50, 50);
   margin-left:50px ;
   margin-right:50px ;

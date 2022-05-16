@@ -9,7 +9,7 @@
           <div></div>
           <div></div>
         </div>
-          <img src="@/assets/home/smile.png" alt="">
+          <img src="@/assets/smile.png" alt="">
       </div>
   </div>
   <div class="project" ref="project1" @click= "goQuiz">

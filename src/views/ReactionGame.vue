@@ -13,7 +13,7 @@
     </div>
     <button class="button start" @click="startGame" v-if="gameStage==='start'">Start</button>
     <button class="button flash" @click="stop" v-if="gameStage==='playing'">FLASH!</button>
-    <p v-if="gameStage==='finished'">Score: {{score}}</p>
+    <p class="score" v-if="gameStage==='finished'">Score: {{score}}</p>
     <button class="button restart" @click="restart" v-if="gameStage === 'finished'">Restart</button>
   </div>
     <div class="instruction">
@@ -77,7 +77,7 @@ function restart(){
 </script>
 
 <style scoped>
-p {
+.score {
   text-align: center;
 }
 .button {

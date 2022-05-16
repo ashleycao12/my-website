@@ -9,7 +9,7 @@
    url(../assets/fonts/Biotif-Regular.ttf) format("truetype");
 }
 body {
-  background-color: rgb(255, 245, 238);
+  background-color: rgb(255, 251, 219);
   color: rgb(73, 73, 73);
   text-align: center;
   padding-top: 80px;
@@ -23,8 +23,8 @@ body {
   width: 60%;
   background-color: white;
   overflow: hidden;
-  padding-bottom: 40px;
-  text-align: center;
+  padding-bottom: 20px;
+ 
 }
 div {
   border-radius: 20px;
@@ -53,8 +53,4 @@ button:hover {
 button {
   border-radius: 10px;
   /* background-color: rgb(244, 244, 244); */
-}
-
-button:active {
-  background-color: rgb(208, 208, 208);
 }
