@@ -2,7 +2,7 @@
   <div class="intro">
     <div class="text">
       <h1>Hi. I'm Ashley</h1>
-      <p>I'm a self-taught fron-end developer. Below are some of my mini projects.</p>
+      <p>I'm a self-taught front-end developer. Below are some of my mini projects.</p>
     </div>
       <div class= "gif">
         <div class="eyes">

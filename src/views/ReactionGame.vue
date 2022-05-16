@@ -77,6 +77,9 @@ function restart(){
 </script>
 
 <style scoped>
+p {
+  text-align: center;
+}
 .button {
   padding: 15px 25px;
   background-color: rgb(237, 93, 93);

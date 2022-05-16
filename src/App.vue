@@ -3,7 +3,7 @@
     <div class="nav">
 
       <router-link to="/">Home</router-link> 
-      <router-link to="/" class="noUnderline" @click="scrollProject">My projects</router-link>
+      <router-link to="/" :class="projectClass" @click="scrollProject">My projects</router-link>
       <router-link to="/about">About</router-link>
     </div>
     <div class="nav1">
@@ -22,11 +22,20 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
+import { useRoute } from 'vue-router';
 import MessageBot from './components/home/MessageBot.vue'
 const projectClick = ref(0)
+const route = useRoute()
+// const projectActive = ref(false)
+const projectClass = computed(()=>{
+  const projectRoutes = ['quiz', 'reactionGame']
+  if (projectRoutes.includes(route.name)) {return 'active'} else {return 'inactive'}
+})
+
 function scrollProject(){
   setTimeout(()=> {projectClick.value++},50)
+  console.log(route.name);
 }
 
 </script>
@@ -92,7 +101,10 @@ nav a {
 nav a.router-link-exact-active {
   text-decoration: underline;  
 }
-.noUnderline {
+.active {
+  text-decoration: underline !important;
+}
+.inactive {
   text-decoration: none !important;
 }
 
