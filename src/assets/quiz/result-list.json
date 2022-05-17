@@ -1,24 +1,24 @@
 [
   {
     "name": "Coffee bean",
-    "description": "Not everyone likes you. But the one that do can't get enough of you.",
+    "description": "Instead of saying \"it's OK\", you'd say \"you're f***ed up\". You're highly responsible but also truely care about others in your own way. Not everyone likes you. But the ones that do are addicted to you.",
     "imgSrc":"Coffee-bean.jpg"
   },
   {
     "name": "Soya bean",
-    "description": "You motivate others to be the better version of themselves. You're also the helpful one in the group. So sometimes people hangout with you because they need you, not necessarily because they like you.",
+    "description": "You're the good boy or good girl of the group. You're usually everyone's saviour since you can do almost everything. But the side effect is that sometimes people hangout with you because they need you, not necessarily because they like you.",
     "imgSrc":"Soya-bean.jpg"
 
   },
   {
     "name": "Beansprouts",
-    "description": "You're calm collected and confident in what you're doing. But sometimes other beans may call you an old person as a joke and you don't always disagree.",
+    "description": "You're calm collected and confident in what you're doing. But sometimes other beans may call you an old person as a joke, and you don't always disagree.",
     "imgSrc":"Beansprouts.jpg"
 
   },
   {
     "name": "Jelly bean",
-    "description": "You're like the devil on people's shoulder that keep telling them to forget their responsibility and have fun.",
+    "description": "You're like the devil on people's shoulder that keep telling them to forget their responsibilities and have fun. Hanging out with leads to amazing memory as well as potentially deadly consequences.",
     "imgSrc":"Jelly-bean.jpg"
 }
 ]

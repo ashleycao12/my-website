@@ -24,7 +24,9 @@ body {
   background-color: white;
   overflow: hidden;
   padding-bottom: 20px;
-
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(221, 202, 202);
  
 }
 div {
