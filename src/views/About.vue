@@ -17,12 +17,15 @@ export default {
 <style scoped>
 .content {
   padding: 50px 30px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(221, 202, 202);
 }
 img {
   width: 200px;
   border-radius: 100px;
   border-style: solid;
-  border-color: rgb(215, 215, 215);
+  border-color: rgb(221, 202, 202);
   border-width: 1px;
 }
 h2 {

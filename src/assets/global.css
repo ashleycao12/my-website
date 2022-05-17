@@ -9,10 +9,10 @@
    url(../assets/fonts/Biotif-Regular.ttf) format("truetype");
 }
 body {
-  background-color: rgb(255, 251, 219);
+  background-color: rgb(255, 250, 247);
   color: rgb(73, 73, 73);
   text-align: center;
-  padding-top: 80px;
+  padding: 100px 6vw;
   /* font-family:  system-ui, Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif; */
 }
 .content {
@@ -24,6 +24,7 @@ body {
   background-color: white;
   overflow: hidden;
   padding-bottom: 20px;
+
  
 }
 div {

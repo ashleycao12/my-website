@@ -29,7 +29,7 @@ export default {
       }
     });  
   function restart(){
-    router.go(0)
+    router.go()
   }
   function goHome() {
     router.push({name:'home'})

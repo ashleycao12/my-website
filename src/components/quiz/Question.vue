@@ -171,6 +171,7 @@
     background-color: rgb(238, 107, 107);
   }
   .QTrack {
+    padding: 10px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
@@ -182,12 +183,16 @@
   .QTrack div {
     border: solid;
     margin: 0 5px;
+    border-width: 2px;
   }
   .Q {
     background-color: white;
     padding: 25px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: solid;
+    border-width: 0.5px;
+    border-color: rgb(199, 168, 168);
     border-radius: 10px;
     text-align: left;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.10);

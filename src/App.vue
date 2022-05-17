@@ -51,12 +51,19 @@ function scrollProject(){
 .nav1 {
   flex: 1;
   text-align: right;
+  margin-right: 3vw;
+  padding: 0.5vw 1vw;
+}
+.nav1 a {
+  margin: 0 2vw;
 }
 a img {
   width: 22px;
 }
 .nav {
-  flex: 1.2;
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
   
   /* background-color: blue; */
 }
@@ -64,38 +71,40 @@ nav {
   /* background-color: blue; */
   display: flex;
   flex-direction: row;
-  padding: 30px;
+  justify-content: center;
+  padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  height: 20px;
-  background-color:rgb(255, 251, 219);
+  /* height: 4vw; */
+  background-color:rgb(255, 250, 247);
 }
 
 nav a {
   /* font-weight: bold; */
   /* color: #2c3e50; */
   /* padding: 7px; */
-  padding: 10px 20px;
+  padding: 0.5vw 1vw;
   border-radius: 10px;
   text-decoration: none;
-  margin-left:28px ;
-  margin-right:28px ;
+  margin-left:2vw ;
+  margin-right:2vw ;
   color: rgb(0, 0, 0);
   font-family:  "Biotif", system-ui, Helvetica Neue, Helvetica,Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 550;
+  font-size: 20px;
+  font-weight: 500;
   transition: all 0.15s;
 }
 
 .nav a:hover{
-  background: rgb(255, 215, 172);
+  background: rgb(255, 217, 195);
   color: rgb(50, 50, 50);
-  margin-left:50px ;
-  margin-right:50px ;
-  font-size: 22px;
+  margin-left:3vw ;
+  margin-right:3vw ;
+  font-size: 25px;
+  
 }
 
 nav a.router-link-exact-active {

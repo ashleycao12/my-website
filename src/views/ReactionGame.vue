@@ -72,7 +72,7 @@ function stop(){
   // console.log(document.getElementById('gap').style.animation);
 }
 function restart(){
-  router.go(0)
+  router.go()
 }
 </script>
 
