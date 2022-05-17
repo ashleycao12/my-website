@@ -61,7 +61,7 @@ a img {
   width: 22px;
 }
 .nav {
-  flex: 0.8;
+  flex: 0.9;
   display: flex;
   justify-content: center;
   
@@ -86,7 +86,7 @@ nav a {
   /* font-weight: bold; */
   /* color: #2c3e50; */
   /* padding: 7px; */
-  padding: 0.5vw 1vw;
+  padding: 10px 12px;
   border-radius: 10px;
   text-decoration: none;
   margin-left:2vw ;
@@ -103,7 +103,7 @@ nav a {
   color: rgb(50, 50, 50);
   margin-left:3vw ;
   margin-right:3vw ;
-  font-size: 25px;
+  font-size: 24px;
   
 }
 
