@@ -25,7 +25,7 @@
 
 <script setup>
 import router from '@/router'
-import {ref,computed} from 'vue'
+import {ref} from 'vue'
 const showInstruction = ref(false)
 const instButtonName = ref('Show instruction')
 const gameStage = ref('start')
@@ -116,33 +116,22 @@ function restart(){
 }
 .restart {
   margin-top: 0;
-  /* padding: 15px 25px;
-  background-color: rgb(237, 93, 93); */
-  /* border: none; */
-  /* margin-bottom: 20px; */
+ 
 }
-/* .button1:hover {
-  opacity: 0.9;
-} */
 .flash{
-  /* padding: 20px 30px; */
   background-color: rgb(163, 233, 93);
   border: solid;
   border-color: rgb(102, 150, 19);
 }
 .game  {
-  /* background-color: white; */
   height: 330px;
-  /* width: 700px; */
   border-radius: 0;
-  /* margin: auto; */
   text-align: center;
 }
 #gap {
-  /* background-color: red; */
+
   flex: 1;
   border-radius: 0;
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   animation: shrink 0.52s ease-in; 
   animation-fill-mode: both;
   animation-play-state: paused;
@@ -152,29 +141,17 @@ function restart(){
   100% {flex: 0;}
 }
 .char {
-  /* background-color: blue; */
+
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 50px 100px 30px;
-  /* margin-bottom: 50px; */
-  /* margin-top: 50px; */
-  /* background-color: blue; */
-  /* width: 50%; */
-  /* margin: auto; */
+
 }
 img {
   height: 100px;
   width: auto;
   object-fit:scale-down;
 }
-.human {
-  /* margin-left: auto; */
-}
-/* .ghostBox {
-  background-color: red;
-  flex: 1;
-  text-align: right;
-  border-radius: 0;
-} */
+
 </style>
