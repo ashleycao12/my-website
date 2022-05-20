@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class="nav">
+    <div class="bg-yellow-200">
 
       <router-link to="/">Home</router-link> 
       <router-link to="/" :class="projectClass" @click="scrollProject">My projects</router-link>
@@ -86,7 +86,7 @@ nav a {
   /* font-weight: bold; */
   /* color: #2c3e50; */
   /* padding: 7px; */
-  padding: 10px 12px;
+  /* padding: 10px 12px;
   border-radius: 10px;
   text-decoration: none;
   margin-left:2vw ;
@@ -95,7 +95,7 @@ nav a {
   font-family:  "Biotif", system-ui, Helvetica Neue, Helvetica,Arial,sans-serif;
   font-size: 20px;
   font-weight: 500;
-  transition: all 0.15s;
+  transition: all 0.15s; */
 }
 
 .nav a:hover{
