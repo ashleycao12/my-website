@@ -1,5 +1,5 @@
 <template>
-<div class="bg-warmPink-1 pt-28 pb-20 absolute w-full">  <!-- content wrapper to get body bg color-->
+<div class="bg-warmPink-1 pt-28 pb-20 absolute w-full min-h-full">  <!-- content wrapper to get body bg color-->
   <nav class="flex fixed top-0 w-full z-40 bg-warmPink-1 pt-5 h-20">
     <div class="flex-1 flex justify-evenly lg:justify-center items-center">
       <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">Home</router-link> 
