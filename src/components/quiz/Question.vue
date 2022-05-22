@@ -1,19 +1,21 @@
 <template>
-  <div class ="Q">
-    <div class="Q2">
-     <div class="QTrack">
-      <div :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
-      <!-- <div class="inactiveQ"></div>  -->
+  <div class ="bg-white py-10 px-16 border border-red-200 rounded-xl shadow-lg md:w-3/5 w-5/6 mx-auto">
+    
+    <!-- question tracker -->
+    <div class="pb-7 w-1/2 mx-auto flex justify-between items-center">      
+      <div class="border-2 border-gray-600 rounded-full" :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
     </div>
 
-    <TransitionGroup tag="div" :name="transitionQ">
-      <h3 class="Q-text" :key="questionID">{{questionText}}</h3>
-      <div class="option" :class="{'selected':option.selected}" v-for ="option in options" @click="nextQ(option.association)" :key="option"> {{option.text}} </div>
+    <!-- Question and options -->
+    <TransitionGroup tag="div" :name="transitionQ">  
+      <h3 class="pb-2 sm:text-lg font-bold text-gray-600" :key="questionID">{{questionText}}</h3>
+      <div class="mt-3 bg-zinc-100 hover:bg-warmPink-3 px-3 py-2 rounded-md shadow-md shadow-gray-300" :class="{'selected':option.selected}" v-for ="option in options" @click="nextQ(option.association)" :key="option"> {{option.text}} </div>
     </TransitionGroup>
-    <div class="changeQ">
-      <button @click="changeQ(-1)">&lt;</button>
-      <button @click="changeQ(1)">&gt;</button>
-    </div>
+
+    <!-- back & next buttons -->
+    <div class="w-full flex justify-between mt-5">  
+      <button class="py-1 px-3 bg-zinc-100 hover:bg-zinc-200 border-2 border-gray-300 rounded-lg" @click="changeQ(-1)">&lt;</button>
+      <button class="py-1 px-3 bg-zinc-100 hover:bg-zinc-200 border-2 border-gray-300 rounded-lg" @click="changeQ(1)">&gt;</button>
     </div>
   </div>
 
@@ -131,6 +133,21 @@
 </script>
 
 <style>
+  .activeQ {
+    height: 20px;
+    width: 20px;
+  }
+  .inactiveQ {
+    width: 12px;
+    height: 12px;
+  }
+  .answered {
+      background-color: rgb(238, 107, 107);
+    }
+  .selected {
+      background: rgb(211, 121, 113) !important;
+    }
+
   @keyframes slide-left {
     0% {opacity:0; transform: translate(55px, 0);}
     100% {opacity:1; transform: translate(0, 0);}
@@ -141,35 +158,24 @@
     100% {opacity:1; transform: translate(0, 0);}
 
   } 
-    .slide-left-enter-active{
-      animation: slide-left 0.3s ease 0.0001s;
-    }
-    .slide-right-enter-active{
-      animation: slide-right 0.3s ease 0.0001s;
-    }
-    .slide-left-leave-active{
-      display: none;
-    }
-    .slide-right-leave-active{
-      display: none;
-    }
-  .Q2 {
+  .slide-left-enter-active{
+    animation: slide-left 0.3s ease 0.0001s;
+  }
+  .slide-right-enter-active{
+    animation: slide-right 0.3s ease 0.0001s;
+  }
+  .slide-left-leave-active{
+    display: none;
+  }
+  .slide-right-leave-active{
+    display: none;
+  }
+  /* .Q2 {
     margin-left: 40px;
     margin-right: 40px;
   }
-  .activeQ {
-    height: 20px;
-    width: 20px;
-    /* margin: 0 7px; */
-  }
-  .inactiveQ {
-    width: 12px;
-    height: 12px;
-    /* margin: 0 5px; */
-  }
-  .answered {
-    background-color: rgb(238, 107, 107);
-  }
+
+  
   .QTrack {
     padding: 10px;
     margin-bottom: 20px;
@@ -177,7 +183,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
     
   }
   .QTrack div {
@@ -198,11 +203,9 @@
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.10);
     display: flex;
     flex-direction: column;
-    /* height: 250px; */
   }
 
   .Q h3 {
-    /* background: blue; */
     height: 40px;
   }
   .option{
@@ -221,20 +224,14 @@
     background: rgb(211, 121, 113);
     transition: 1s;
   }
-  .selected {
-    background: rgb(211, 121, 113);
-  }
+  
   .changeQ {
     margin-top: 20px;
-    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
   }
   .changeQ button {
-    padding: 5px 10px;
-    border: solid;
-    border-color: rgb(203, 203, 203);
-    border-width: 2px;
+  
   }
 
   .changeQ button:hover {
@@ -242,5 +239,5 @@
   }
   h3{
     margin: 5px 0 15px 0;
-  }
+  } */
 </style>

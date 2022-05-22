@@ -1,9 +1,11 @@
 <template>
+<!-- the chat bubble on the bottom right -->
 <div class="messageIcon" @click="toggleShowMes">
   <img class="mesIconImg"  src="@/assets/messageIcon.png" alt="no image">
 </div>
 
-<div class="mesBox" v-if="showMesBox">
+<!-- pop up chatbot -->
+<div class="mesBox w-full sm:w-88 h-full sm:h-5/6 max-h-[700px] bottom-0 right-0 sm:bottom-10 sm:right-10" v-if="showMesBox">
   <div class="nameBar">
     <img src="@/assets/profile-pic.jpg" alt="">
     <div class="botName">
@@ -185,6 +187,7 @@
   font-size: 14px;
   font-weight: 500;
   color: rgb(89, 38, 20);
+  border-radius: 20px;
 }
 .options:hover {
   background-color: rgb(253, 225, 196);
@@ -192,9 +195,7 @@
   opacity: 1;
 }
 #mesContent {
-  /* background-color: blue; */
   flex: 1;
-  /* height: 900px; */
   overflow-y: scroll;
 }
 .textBubble {
@@ -231,6 +232,7 @@
   background-color:  rgb(33, 33, 33);
   border: none;
   font-size: large;
+  border-radius: 10px;
 }
 .closeButton:hover {
   background-color: rgb(55, 55, 55);
@@ -271,11 +273,11 @@ p {
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 30%;
-  max-width: 400px;
-  height: 90%;
+  /* bottom: 40px;
+  right: 40px; */
+  /* width: 30%; */
+  /* max-width: 400px; */
+  /* height: 90%; */
   max-height: 700px;
   border-radius: 10px;
   overflow: hidden;

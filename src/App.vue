@@ -1,24 +1,23 @@
 <template>
-  <nav>
-    <div class="bg-yellow-200">
-
-      <router-link to="/">Home</router-link> 
-      <router-link to="/" :class="projectClass" @click="scrollProject">My projects</router-link>
-      <router-link to="/about">About</router-link>
+<div class="bg-warmPink-1 pt-28 pb-20 absolute w-full">  <!-- content wrapper to get body bg color-->
+  <nav class="flex fixed top-0 w-full z-40 bg-warmPink-1 pt-5 h-20">
+    <div class="flex-1 flex justify-evenly lg:justify-center items-center">
+      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">Home</router-link> 
+      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150" :class="projectClass" @click="scrollProject">My projects</router-link>
+      <router-link to="/about" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">About</router-link>
     </div>
-    <div class="nav1">
-
+    <div class="md:w-1/3 lg:w-1/2 flex justify-end items-center">
       <a href="https://www.linkedin.com/in/ashley-cao/">
-        <img src="@/assets/linkedin-icon.png" alt="">
+        <img src="@/assets/linkedin-icon.png" alt="" class="sm:w-6 w-5">
       </a>
       <a href="https://github.com/ashleycao12">
-        <img src="@/assets/github-icon.png" alt="">
+        <img src="@/assets/github-icon.png" alt="" class="sm:w-6 w-5 sm:mx-20 mx-4">
       </a>
         </div>
-
   </nav>
   <router-view :projectClick="projectClick"/>
   <MessageBot/>
+  </div>
 </template>
 
 <script setup>
@@ -41,6 +40,10 @@ function scrollProject(){
 </script>
 
 <style>
+/* body {
+  background-color: rgb(255 251 235);
+} */
+/*
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,10 +68,8 @@ a img {
   display: flex;
   justify-content: center;
   
-  /* background-color: blue; */
 }
 nav {
-  /* background-color: blue; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -78,15 +79,14 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  /* height: 4vw; */
   background-color:rgb(255, 250, 247);
 }
 
 nav a {
-  /* font-weight: bold; */
-  /* color: #2c3e50; */
-  /* padding: 7px; */
-  /* padding: 10px 12px;
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 7px;
+  padding: 10px 12px;
   border-radius: 10px;
   text-decoration: none;
   margin-left:2vw ;
@@ -95,7 +95,7 @@ nav a {
   font-family:  "Biotif", system-ui, Helvetica Neue, Helvetica,Arial,sans-serif;
   font-size: 20px;
   font-weight: 500;
-  transition: all 0.15s; */
+  transition: all 0.15s;
 }
 
 .nav a:hover{
@@ -106,10 +106,10 @@ nav a {
   font-size: 24px;
   
 }
-
+*/
 nav a.router-link-exact-active {
   text-decoration: underline;  
-}
+} 
 .active {
   text-decoration: underline !important;
 }
@@ -117,4 +117,4 @@ nav a.router-link-exact-active {
   text-decoration: none !important;
 }
 
-</style>
+</style> 

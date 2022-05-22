@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "bogart";
+  src: local("bogart"),
+   url(./assets/fonts/Bogart-Regular-trial.ttf) format("truetype");
+}
+@font-face {
+  font-family: "biotif";
+  src: local("biotif"),
+   url(./assets/fonts/Biotif-Regular.ttf) format("truetype");
+}
+
+

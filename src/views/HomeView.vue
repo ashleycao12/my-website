@@ -1,28 +1,28 @@
 <template>
-  <div class="intro">
-    <div class="text">
-      <h1>Hi. I'm Ashley.</h1>
-      <h1>A developer</h1>
-      <p>I'm passionate about programming and creating IT solutions. Below are some mini projects that I did for fun.</p>
+  <div class="mx-5 lg:flex md:mx-32 my-14"> <!-- intro -->
+    <div class="text-center lg:text-left lg:w-1/2 mx-7 flex flex-col justify-center">
+      <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">Hi. I'm Ashley.</h1>
+      <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">A developer</h1>
+      <p class="text-left font-biotif text-gray-500 md:text-2xl my-5">I'm passionate about programming and creating IT solutions. Below are some mini projects that I did for fun.</p>
     </div>
-      <div class= "gif">
-        <div class="eyes">
-          <div></div>
-          <div></div>
+      <div class= "lg:w-1/2 bg-black h-auto pt-28 pb-16 rounded-4xl lg:ml-10">  <!-- gif -->
+        <div class="flex justify-between w-2/5 m-auto">  <!-- eyes -->
+          <div class="eye w-9 h-11 rounded-full bg-white"></div>
+          <div class="eye w-9 h-11 rounded-full bg-white"></div>
         </div>
-          <img src="@/assets/smile.png" alt="">
+          <img src="@/assets/smile.png" class="object-contain h-auto">
       </div>
   </div>
-  <div class="project" ref="project1" @click= "goQuiz">
-    <div class="projectContent">
-    <h3>Quiz: What kind of bean are you? </h3>
-    <img class="projectImg" src="@/assets/quiz/mixedBean.jpg" alt="no image">
+  <div class="bg-white h-44 md:h-80 lg:h-96 w-3/5 mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" ref="project1" @click= "goQuiz">  <!-- project container -->
+    <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">                                                    <!-- project content (so it can move up when hover)-->
+    <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Quiz: What kind of bean are you? </h3>
+    <img class="projectImg object-cover w-full" src="@/assets/quiz/mixedBean.jpg" alt="no image">
     </div>
   </div>
-  <div class="project" @click= "goReactionGame">
-    <div class="projectContent">
-    <h3>Mini game: How close can you get? </h3>
-    <img class="projectImg" src="@/assets/reaction-game/thumbnail.png" alt="no image">
+  <div class="bg-white h-44 md:h-80 lg:h-96 w-3/5 mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" @click= "goReactionGame">
+    <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
+    <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Mini game: How close can you get? </h3>
+    <img class="projectImg object-cover w-full" src="@/assets/reaction-game/thumbnail.png" alt="no image">
     </div>
   </div>
 </template>
@@ -32,8 +32,9 @@
   import {watch, ref} from 'vue'
   const props = defineProps({projectClick: Number})
   const project1 = ref(null)
+  //wait for user to click on project on nav
   watch(() => props.projectClick, ()=>{
-    project1.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    project1.value.scrollIntoView({ behavior: 'smooth', block: 'center' })  //scroll to the first project
   })
   function goQuiz() {
     router.push({name:'quiz'})
@@ -45,7 +46,17 @@
 </script>
 
 <style scoped>
-  .eyes {
+  .eye {
+    animation: blink 3s linear 0.0001s infinite;
+  }
+   @keyframes blink {
+    0% {transform: scaleY(0.1) scaleX(1.4);}
+    5% {transform: scaleY(1) scaleX(1);}
+    10% {transform: scaleY(0.1) scaleX(1.4);}
+    15% {transform: scaleY(1) scaleX(1);}
+     
+  }
+  /* .eyes {
     background-color: rgb(0, 0, 0);
     margin: 30% 30% 0;
     display: flex;
@@ -66,15 +77,12 @@
     10% {transform: scaleY(0.1) scaleX(1.4);}
     15% {transform: scaleY(1) scaleX(1);}
      
-    /* 100% {transform: scaleY(1);} */
   }
   .intro {
     display: flex;
     flex-direction: row;
     margin: 50px;
     
-    /* font-family:  system-ui, Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif; */
-    /* height: 500px; */
   }
   .intro>.text {
     flex: 1;
@@ -101,12 +109,10 @@
     flex:1;
     height: auto;
     overflow: hidden;
-    /* height: 500px; */
     background-color: rgb(0, 0, 0);
     border-radius: 3vw;
   }
   .gif img {
-    /* max-width: 80%; */
     height: auto;
     object-fit: contain;
     padding-bottom: 5vw;
@@ -126,7 +132,6 @@
     box-shadow: 0px 40px 40px 20px rgba(0, 0, 0, 0.141);
   }
   .projectImg {
-    /* height: 90%; */
     width: 100%;
     object-fit: cover;
     vertical-align: bottom;
@@ -140,5 +145,5 @@
   .projectContent:hover {
     transform: translate(0,-10px);
     
-  }
+  } */
 </style>

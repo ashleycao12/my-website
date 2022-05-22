@@ -1,15 +1,16 @@
 <template>
-<h2 v-if="status === 'playing'">Quiz time!</h2>
- <div class="content" v-if="status === 'intro'">
-   <!-- <div class="startPhoto">Place holder</div> -->
-   <img src="@/assets/quiz/mixedBean.jpg" alt="no image">
-   <h2>What kind of bean are you?</h2>
-   <p>Don't we all like beans? Let's do a fun little quiz to find out what kind of bean you are.</p>
-   <button class="startButton" @click="start">Start</button>
+<h1 class="pb-5 sm:text-2xl text-center font-bold text-gray-600" v-if="status === 'playing'">Quiz time!</h1>
+<!-- intro --> 
+<div class="bg-white overflow-hidden w-5/6 md:w-3/5 mx-auto rounded-3xl border border-red-200" v-if="status === 'intro'">
+  <img class="object-cover w-full" src="@/assets/quiz/mixedBean.jpg" alt="no image">
+  <div class="px-8 pb-8 md:px-16 text-center">
+      <h1 class="pt-6 sm:text-2xl text-center font-bold text-gray-600">What kind of bean are you?</h1>
+      <p class="text-left font-biotif text-gray-500 md:text-lg my-5">Don't we all like beans? Let's do a fun little quiz to find out what kind of bean you are.</p>
+    <button class="bg-red-400 hover:bg-red-300 text-lg md:text-2xl py-2 px-7 rounded-xl" @click="start">Start</button>
+   </div> 
  </div>
  <Question v-if="status === 'playing'" @endGame="showResult"/>
  <QuizResult v-if="status === 'finished'" :resultName="resultName"/>
-<!-- </div> -->
 </template>
 
 
@@ -37,7 +38,7 @@
 
 
 <style>
-  .startPhoto {
+  /* .startPhoto {
     background-color: black;
     height: 300px;
     margin: 20px 200px 20px;
@@ -50,5 +51,5 @@
   }
   .startButton:hover {
     background-color: rgba(234, 134, 134, 0.849);
-  }
+  } */
 </style>

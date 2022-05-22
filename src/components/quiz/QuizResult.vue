@@ -1,12 +1,14 @@
 <template>
-  <div class="content">
-  <img class="resultImg" :src= "imgSrc" alt="No image available"/>
-  <h2>{{result}} <span v-if="result==='Beansprouts'">(boomer bean)</span> </h2>
-  <p>{{description}}</p>
+  <div class="bg-white overflow-hidden w-5/6 md:w-3/5 mx-auto rounded-3xl border border-red-200">
+  <img class="object-cover w-full" :src= "imgSrc" alt="No image available"/>
+  <div class="px-8 pb-8 md:px-16 text-center">
+    <h1 class="pt-6 sm:text-2xl text-center font-bold text-gray-600">{{result}} <span v-if="result==='Beansprouts'">(boomer bean)</span> </h1>
+    <p class="text-left font-biotif text-gray-500 md:text-lg my-5">{{description}}</p>
   </div>
-    <div class="buttons">
-      <button @click="goHome">back to homepage</button>
-      <button @click="restart">restart quiz</button>
+  </div>
+    <div class="mt-11 text-center font-biotif text-zinc-500">
+      <button class="text-lg mx-5 underline" @click="goHome">back to homepage</button>
+      <button class="text-lg mx-5 underline" @click="restart">restart quiz</button>
     </div>
 </template>
 
@@ -41,7 +43,7 @@ export default {
 
 <style scoped>
 
-.buttons {
+/* .buttons {
   margin-bottom: 30px;
 }
 button {
@@ -55,5 +57,5 @@ button {
 }
 p {
   padding: 0 20px 0;
-}
+} */
 </style>

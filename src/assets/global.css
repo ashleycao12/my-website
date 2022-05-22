@@ -1,3 +1,4 @@
+/*
 @font-face {
   font-family: "Bogart";
   src: local("Bogart"),
@@ -8,12 +9,11 @@
   src: local("Biotif"),
    url(../assets/fonts/Biotif-Regular.ttf) format("truetype");
 }
-body {
+/* body {
   background-color: rgb(255, 250, 247);
   color: rgb(73, 73, 73);
   text-align: center;
   padding: 100px 6vw;
-  /* font-family:  system-ui, Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif; */
 }
 .content {
   height: auto;
@@ -51,9 +51,7 @@ h1 {
 }
 button:hover {
   cursor: pointer;
-  /* background-color: rgb(236, 236, 236); */
 }
 button {
   border-radius: 10px;
-  /* background-color: rgb(244, 244, 244); */
-}
+} */

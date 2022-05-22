@@ -1,24 +1,25 @@
 <template>
-  <div class="whole">
-  <div class="game">
-    <div class="char">
-      
-      <!-- <div class="ghostBox" id="ghost2"> -->
-
-      <img id="ghost" :src="ghostImg" alt="no image">
+  <!-- contend wrapper -->
+  <div class="bg-white w-11/12 md:w-3/5 mx-auto rounded-3xl border border-red-200 overflow-hidden">  
+  
+  <div class="text-center">  <!-- game area-->
+    <!-- characters-->
+    <div class="flex justify-end px-20 py-12 ">
+      <img class="h-14 sm:h-20 md:h-28 w-auto object-scale-down" id="ghost" :src="ghostImg" alt="no image">
       <div id="gap"></div>
-      <!-- </div> -->
-      
-      <img id="human" :src="humanImg" alt="no image">
+      <img class="h-14 sm:h-20 md:h-28 w-auto object-scale-down" id="human" :src="humanImg" alt="no image">
     </div>
-    <button class="button start" @click="startGame" v-if="gameStage==='start'">Start</button>
-    <button class="button flash" @click="stop" v-if="gameStage==='playing'">FLASH!</button>
-    <p class="score" v-if="gameStage==='finished'">Score: {{score}}</p>
-    <button class="button restart" @click="restart" v-if="gameStage === 'finished'">Restart</button>
+    <!-- buttons -->
+    <button class="py-4 px-7 bg-rose-400 border-2 border-rose-600 mt-12 rounded-lg" @click="startGame" v-if="gameStage==='start'">Start</button>
+    <button class="py-4 px-7 bg-lime-300 border-2 border-lime-600 mt-12 rounded-lg " @click="stop" v-if="gameStage==='playing'">FLASH!</button>
+    <p class="text-center font-biotif text-gray-500" v-if="gameStage==='finished'">Score: {{score}}</p>
+    <button class="pt-4 pb-5 px-7 bg-rose-400 border-2 border-rose-600 rounded-lg mt-5" @click="restart" v-if="gameStage === 'finished'">Restart</button>
   </div>
-    <div class="instruction">
-      <button class="buttonInst" @click="toggleInstruction">{{instButtonName}}</button>
-      <p v-if="showInstruction">Use your flashlight to stop the ghost from getting you. The closer you let it, the higher score you get.</p>
+
+  <!-- instruction -->
+    <div class="">
+      <button class="mt-5 ml-1 p-1 border-2 bg-slate-100 border-gray-400 rounded-full" @click="toggleInstruction">{{instButtonName}}</button>
+      <p class="p-6 pt-2" v-if="showInstruction">Use your flashlight to stop the ghost from getting you. The closer you let it, the higher score you get.</p>
     </div>
   </div>
 </template>
@@ -77,7 +78,19 @@ function restart(){
 </script>
 
 <style scoped>
-.score {
+#gap {
+  flex: 1;
+  border-radius: 0;
+  animation: shrink 0.52s ease-in; 
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+@keyframes shrink {
+  0% {}
+  100% {flex: 0;}
+}
+
+/* .score {
   text-align: center;
 }
 .button {
@@ -98,11 +111,9 @@ function restart(){
 }
 .instruction {
   border-radius: 0;
-  /* background-color: white; */
   text-align: left;
   width: 700px;
   padding-left: 10px;
-  /* margin: auto; */
 }
 .instruction button {
   border: solid;
@@ -112,7 +123,6 @@ function restart(){
 .instruction p {
   margin-top: 0;
   padding: 10px;
-  /* padding: 10px; */
 }
 .restart {
   margin-top: 0;
@@ -128,18 +138,7 @@ function restart(){
   border-radius: 0;
   text-align: center;
 }
-#gap {
 
-  flex: 1;
-  border-radius: 0;
-  animation: shrink 0.52s ease-in; 
-  animation-fill-mode: both;
-  animation-play-state: paused;
-}
-@keyframes shrink {
-  0% {}
-  100% {flex: 0;}
-}
 .char {
 
   display: flex;
@@ -152,6 +151,6 @@ img {
   height: 100px;
   width: auto;
   object-fit:scale-down;
-}
+} */
 
 </style>
