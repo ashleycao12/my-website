@@ -1,8 +1,8 @@
 <template>
-  <div class ="bg-white py-10 px-16 border border-red-200 rounded-xl shadow-lg md:w-3/5 w-5/6 mx-auto">
+  <div class ="bg-white py-10 px-5 sm:px-16 border border-red-200 rounded-xl shadow-lg md:w-3/5 w-5/6 mx-auto">
     
     <!-- question tracker -->
-    <div class="pb-7 w-1/2 mx-auto flex justify-between items-center">      
+    <div class="pb-7 w-2/3 sm:w-1/2 mx-auto flex justify-between items-center">      
       <div class="border-2 border-gray-600 rounded-full" :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
     </div>
 
