@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-5 lg:flex md:mx-32 my-14"> <!-- intro -->
-    <div class="text-center lg:text-left lg:w-1/2 mx-7 flex flex-col justify-center">
+  <div class="w-5/6 xl:w-3/5 max-w-5xl lg:flex mx-auto my-14"> <!-- intro -->
+    <div class="text-center lg:text-left lg:w-1/2 mx-7 flex flex-col justify-center">  <!-- text container-->
       <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">Hi. I'm Ashley.</h1>
       <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">A developer</h1>
       <p class="text-left font-biotif text-gray-500 md:text-2xl my-5">I'm passionate about programming and creating IT solutions. Below are some mini projects that I did for fun.</p>
@@ -13,13 +13,13 @@
           <img src="@/assets/smile.png" class="object-contain h-auto">
       </div>
   </div>
-  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" ref="project1" @click= "goQuiz">  <!-- project container -->
+  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" ref="project1" @click= "goQuiz">  <!-- project container -->
     <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">                                                    <!-- project content (so it can move up when hover)-->
     <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Quiz: What kind of bean are you? </h3>
     <img class="projectImg object-cover w-full" src="@/assets/quiz/mixedBean.jpg" alt="no image">
     </div>
   </div>
-  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" @click= "goReactionGame">
+  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" @click= "goReactionGame">
     <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
     <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Mini game: How close can you get? </h3>
     <img class="projectImg object-cover w-full" src="@/assets/reaction-game/thumbnail.png" alt="no image">

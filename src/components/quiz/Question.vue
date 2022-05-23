@@ -1,6 +1,6 @@
 <template>
-  <div class ="bg-white py-10 px-5 sm:px-16 border border-red-200 rounded-xl shadow-lg md:w-3/5 w-5/6 mx-auto">
-    
+  <!-- content box -->
+  <div class ="bg-white py-10 px-5 sm:px-16 border border-red-200 rounded-xl shadow-lg w-5/6 md:w-3/5 max-w-3xl mx-auto">
     <!-- question tracker -->
     <div class="pb-7 w-2/3 sm:w-1/2 mx-auto flex justify-between items-center">      
       <div class="border-2 border-gray-600 rounded-full" :class="dotStyle(index,questionID)" v-for="(question,index) in questionTrack" :key="index"></div>
@@ -9,7 +9,7 @@
     <!-- Question and options -->
     <TransitionGroup tag="div" :name="transitionQ">  
       <h3 class="pb-2 sm:text-lg font-bold text-gray-600" :key="questionID">{{questionText}}</h3>
-      <div class="mt-3 bg-zinc-100 hover:bg-warmPink-3 px-3 py-2 rounded-md shadow-md shadow-gray-300" :class="{'selected':option.selected}" v-for ="option in options" @click="nextQ(option.association)" :key="option"> {{option.text}} </div>
+      <div class="cursor-pointer mt-3 bg-zinc-100 hover:bg-warmPink-3 px-3 py-2 rounded-md shadow-md shadow-gray-300" :class="{'selected':option.selected}" v-for ="option in options" @click="nextQ(option.association)" :key="option"> {{option.text}} </div>
     </TransitionGroup>
 
     <!-- back & next buttons -->

@@ -5,7 +5,7 @@
 </div>
 
 <!-- pop up chatbot -->
-<div class="mesBox w-full sm:w-88 h-full sm:h-5/6 max-h-[700px] bottom-0 right-0 sm:bottom-10 sm:right-10" v-if="showMesBox">
+<div class="mesBox w-full sm:w-88 h-full sm:h-5/6 sm:max-h-[600px] bottom-0 right-0 sm:bottom-10 sm:right-10" v-if="showMesBox">
   <div class="nameBar">
     <img src="@/assets/profile-pic.jpg" alt="">
     <div class="botName">
@@ -278,7 +278,7 @@ p {
   /* width: 30%; */
   /* max-width: 400px; */
   /* height: 90%; */
-  max-height: 700px;
+  /* max-height: 700px; */
   border-radius: 10px;
   overflow: hidden;
   background-color: white;
