@@ -1,6 +1,6 @@
 <template>
   <!-- contend wrapper -->
-  <div class="bg-white w-11/12 md:w-3/5 mx-auto rounded-3xl border border-red-200 overflow-hidden">  
+  <div class="bg-white w-11/12 md:w-3/5 max-w-3xl mx-auto rounded-3xl border border-red-200 overflow-hidden">  
   
   <div class="text-center">  <!-- game area-->
     <!-- characters-->
