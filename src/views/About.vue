@@ -7,32 +7,3 @@
     <p class="text-left font-biotif text-gray-500 md:text-lg my-5">Outside of work I spend time on drawing and playing games. </p>
   </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style scoped>
-/* .content {
-  padding: 50px 30px;
-  border: solid;
-  border-width: 1px;
-  border-color: rgb(221, 202, 202);
-}
-img {
-  width: 200px;
-  border-radius: 100px;
-  border-style: solid;
-  border-color: rgb(221, 202, 202);
-  border-width: 1px;
-}
-h2 {
-  font-family: "Bogart",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
-  color: rgb(39, 39, 39);
-  text-align: left;
-  padding: 0 50px;
-}  */
-</style>

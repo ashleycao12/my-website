@@ -111,24 +111,6 @@
   }
 
  ////*** Contributing functions ***//// 
-
-  // function reset() {
-  //   messages.value = [] 
-  //   quesList.value = messagesJson.questions
-  //   quesList_unfiltered.value = messagesJson.questions
-  //   lastReply.value = anythingElse
-
-  //   messagesJson.greeting.forEach(item => {
-  //     messages.value.push(
-  //       {
-  //         style:"answer",
-  //         text: item
-  //       }
-  //     )
-  //   })
-  //   getOptions()
-  // }
-
   function getOptions (){
     options.value = quesList.value.map((item)=>item.text)
   }
@@ -139,7 +121,6 @@
     // console.log(contentRef.value.scrollTop)
   })
   }
-   
 
   function addMes(mesList) {      //function to add new message to the chain one by one with a delay
     let i = 0
@@ -156,12 +137,10 @@
         setTimeout(() => {
           visibility.value = 'visible'
           scroll()
-        }, 1500)
-        
+        }, 1500)     
       }
       // console.log(content.scrollHeight);
-    },1500)
-    
+    },1500)  
   }
 
 </script>
@@ -273,12 +252,6 @@ p {
   display: flex;
   flex-direction: column;
   position: fixed;
-  /* bottom: 40px;
-  right: 40px; */
-  /* width: 30%; */
-  /* max-width: 400px; */
-  /* height: 90%; */
-  /* max-height: 700px; */
   border-radius: 10px;
   overflow: hidden;
   background-color: white;

@@ -46,7 +46,6 @@ function toggleInstruction() {
 }
 
 function startGame(){
-  // interval.value = setInterval(function(){time.value++},10)
   timeOutID.value = setTimeout(gameOver,500)
   timeStart.value = Date.now()
   document.getElementById('gap').style.animationPlayState = 'running';
@@ -70,7 +69,6 @@ function stop(){
     score.value = Math.trunc(100000*Math.pow(time.value/520,2))
   }
   gameStage.value = 'finished'
-  // console.log(document.getElementById('gap').style.animation);
 }
 function restart(){
   router.go()
@@ -78,79 +76,15 @@ function restart(){
 </script>
 
 <style scoped>
-#gap {
-  flex: 1;
-  border-radius: 0;
-  animation: shrink 0.52s ease-in; 
-  animation-fill-mode: both;
-  animation-play-state: paused;
-}
-@keyframes shrink {
-  0% {}
-  100% {flex: 0;}
-}
-
-/* .score {
-  text-align: center;
-}
-.button {
-  padding: 15px 25px;
-  background-color: rgb(237, 93, 93);
-  border: none;
-  margin-top: 30px;
-}
-.button:hover {
-  opacity: 0.9;
-}
-.whole {
-  background-color: white;
-  width: 700px;
-  margin: auto;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.instruction {
-  border-radius: 0;
-  text-align: left;
-  width: 700px;
-  padding-left: 10px;
-}
-.instruction button {
-  border: solid;
-  border-color: rgb(139, 133, 138);
-  background-color: rgb(237, 227, 240);
-}
-.instruction p {
-  margin-top: 0;
-  padding: 10px;
-}
-.restart {
-  margin-top: 0;
- 
-}
-.flash{
-  background-color: rgb(163, 233, 93);
-  border: solid;
-  border-color: rgb(102, 150, 19);
-}
-.game  {
-  height: 330px;
-  border-radius: 0;
-  text-align: center;
-}
-
-.char {
-
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 50px 100px 30px;
-
-}
-img {
-  height: 100px;
-  width: auto;
-  object-fit:scale-down;
-} */
-
+  #gap {
+    flex: 1;
+    border-radius: 0;
+    animation: shrink 0.52s ease-in; 
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+  @keyframes shrink {
+    0% {}
+    100% {flex: 0;}
+  }
 </style>

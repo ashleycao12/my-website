@@ -26,7 +26,7 @@
   import resultListJson from '@/assets/quiz/result-list.json'
 
   export default {
-    setup(props, context){
+    setup(context){
       // declare and initialise variable
       const questionID = ref(0)
       const questionText = ref()
@@ -59,7 +59,7 @@
         inactiveQ:questionID != index
       }}
 
-
+      //get the first question
       getQ()
 
       //get text, list of options and weight of the current question.
@@ -101,7 +101,6 @@
         });
           return top0
       }
-
 
       function nextQ (selectedAssociation) {
         //update questionTracking
@@ -170,74 +169,5 @@
   .slide-right-leave-active{
     display: none;
   }
-  /* .Q2 {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
 
-  
-  .QTrack {
-    padding: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  .QTrack div {
-    border: solid;
-    margin: 0 5px;
-    border-width: 2px;
-  }
-  .Q {
-    background-color: white;
-    padding: 25px;
-    margin-left: 20%;
-    margin-right: 20%;
-    border: solid;
-    border-width: 0.5px;
-    border-color: rgb(199, 168, 168);
-    border-radius: 10px;
-    text-align: left;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.10);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .Q h3 {
-    height: 40px;
-  }
-  .option{
-    margin: 10px 0 0 0;
-    background: rgb(248, 248, 248);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.15);
-  }
-  .option:hover{
-    background: rgb(239, 166, 144);
-    cursor: pointer;
-    transition: 0.2ms;
-  }
-  .option:active{
-    background: rgb(211, 121, 113);
-    transition: 1s;
-  }
-  
-  .changeQ {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .changeQ button {
-  
-  }
-
-  .changeQ button:hover {
-    background-color: rgb(238, 238, 238);
-  }
-  h3{
-    margin: 5px 0 15px 0;
-  } */
 </style>

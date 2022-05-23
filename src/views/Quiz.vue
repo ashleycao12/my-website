@@ -8,9 +8,10 @@
       <p class="text-left font-biotif text-gray-500 md:text-lg my-5">Don't we all like beans? Let's do a fun little quiz to find out what kind of bean you are.</p>
     <button class="bg-red-400 hover:bg-red-300 text-lg md:text-2xl py-2 px-7 rounded-xl" @click="start">Start</button>
    </div> 
- </div>
- <Question v-if="status === 'playing'" @endGame="showResult"/>
- <QuizResult v-if="status === 'finished'" :resultName="resultName"/>
+</div>
+
+<Question v-if="status === 'playing'" @endGame="showResult"/>
+<QuizResult v-if="status === 'finished'" :resultName="resultName"/>
 </template>
 
 
@@ -36,20 +37,3 @@
   }
 </script>
 
-
-<style>
-  /* .startPhoto {
-    background-color: black;
-    height: 300px;
-    margin: 20px 200px 20px;
-  }
-  .startButton {
-    padding: 15px 35px;
-    background-color:  rgb(225, 103, 117);
-    border: none;
-    font-size: 20px;
-  }
-  .startButton:hover {
-    background-color: rgba(234, 134, 134, 0.849);
-  } */
-</style>
