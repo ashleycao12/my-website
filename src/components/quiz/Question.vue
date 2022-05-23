@@ -26,7 +26,7 @@
   import resultListJson from '@/assets/quiz/result-list.json'
 
   export default {
-    setup(context){
+    setup(props,context){
       // declare and initialise variable
       const questionID = ref(0)
       const questionText = ref()
