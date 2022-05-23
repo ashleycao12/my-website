@@ -5,9 +5,9 @@
   <nav class="flex fixed top-0 w-full z-40 bg-warmPink-1 pt-5 h-20">
     <!-- internal navigation links -->
     <div class="flex-1 flex justify-evenly lg:justify-center items-center">
-      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">Home</router-link> 
-      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150" :class="projectClass" @click="scrollProject">My projects</router-link>
-      <router-link to="/about" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif hover:text-2xl hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">About</router-link>
+      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif sm:hover:text-2xl sm:hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">Home</router-link> 
+      <router-link to="/" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif sm:hover:text-2xl sm:hover:mx-10 hover:bg-warmPink-2 transition-all duration-150" :class="projectClass" @click="scrollProject">My projects</router-link>
+      <router-link to="/about" class="md:mx-5 py-2 px-4 rounded-lg sm:text-xl font-biotif sm:hover:text-2xl sm:hover:mx-10 hover:bg-warmPink-2 transition-all duration-150">About</router-link>
     </div>
     <!-- external links-->
     <div class="md:w-1/3 lg:w-1/2 flex justify-end items-center">
