@@ -1,6 +1,6 @@
 <template>
 <!-- intro -->
-  <div class="w-5/6 xl:w-3/5 max-w-5xl lg:flex mx-auto my-14">   
+  <div class="w-5/6 xl:w-2/3 2xl:w-3/5 max-w-5xl lg:flex mx-auto my-14">   
   <!-- text container-->
     <div class="text-center lg:text-left lg:w-1/2 mx-7 flex flex-col justify-center">  
       <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">Hi. I'm Ashley.</h1>
