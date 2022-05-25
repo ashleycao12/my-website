@@ -1,5 +1,8 @@
 # my-website
 
+## Note
+I learned new things along the way when building this website. So you may see some inconsistency like combination of ```<script>``` and ```<script setup>```
+
 ## Project setup
 ```
 npm install
