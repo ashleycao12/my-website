@@ -5,13 +5,13 @@
 </div>
 
 <!-- pop up chatbot -->
-<div class="mesBox w-full sm:w-88 h-full sm:h-5/6 sm:max-h-[600px] bottom-0 right-0 sm:bottom-10 sm:right-10" v-if="showMesBox">
+<div class="mesBox w-full sm:w-92 h-full sm:h-5/6 sm:max-h-[600px] bottom-0 right-0 sm:bottom-10 sm:right-10" v-if="showMesBox">
   <div class="nameBar">
     <img src="@/assets/profile-pic.jpg" alt="">
     <div class="botName">
-      <h3>
+      <h1 class="text-lg font-semibold">
         Ashley Bot
-      </h3> 
+      </h1> 
       <p>Ask me a question!</p>
       </div>
     <button class="closeButton" @click="toggleShowMes">&#10006;</button>

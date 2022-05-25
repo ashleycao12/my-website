@@ -17,7 +17,7 @@ module.exports = {
         'biotif': 'biotif',
       },
       width:{
-        '88':'22rem'
+        '92':'23rem'
       } 
     },
   },
