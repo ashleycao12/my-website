@@ -44,7 +44,7 @@
   //non-reactive variables
   const backOutOption = {text: "No, I want to ask more general questions", answers: ["Sure. How can I help?"]}
   const anythingElse = 'Anything else I can help?'
-  const anythingElse1 = 'Anything other question in this topic?'
+  const anythingElse1 = 'Any other question in this topic?'
 
   //set up 
   lastReply.value = anythingElse
