@@ -8,26 +8,25 @@
         "Hope you like my website"
       ]
     },
-    {"text":"🤓 Questions about the website",
+    {"text":"🤓 Questions about the website and projects",
       "answers":["Anything in particular you want to ask?"],
       "questions":[
         {"text":"🤖 What languagues did you use?",
           "answers":[
-            "I used HTML, CSS and the JavaScript framework Vue"
+            "I used HTML, CSS, Vue.js for the this website and React.js for the simple games project"
           ]
         },
-        {"text":"⌛ How long did it take to build?",
+        {"text":"🖥️ Any other tech did you use?",
           "answers":[
-            "I'm working full-time, so can only spend a few hours a day on learning",
-            "It took me 1 week to learn the basic of front-end web development",
-            "And 3 more weeks to build the website. So around 1 month in total"
+            "I used Firebase to create a simple backend for my game website",
+            "I used Vite for build tool. Much better than web pack. Highly recommended.",
+            "I used TailwindCSS for styling"
           ]
         }, 
         {"text":"🤔 What's your next project?",
           "answers":[
-            "I want to learn back-end web development",
-            "I want to build a note tool that have powerful search and filter function.",
-            "I'm thinking of using Django since I have experience with Python"
+            "I'm thinking of making a chatroom or an online game website.",
+            "I'm curious how data is stored and transfered in real time between users."
           ]
         }
       ]
@@ -36,7 +35,7 @@
     {"text":"✍ Tips for learning programming?",
       "answers":[
         "Google everything.", 
-        "My favorite sites: Youtube, Stackoverflow, w3schools"
+        "My favorite sites: Youtube, Stackoverflow, MDN"
       ]
     },
     
