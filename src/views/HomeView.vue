@@ -19,19 +19,21 @@
       </div>
   </div>
 
-  <!-- projects -->
-  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" ref="project1" @click= "goQuiz">  
+  <!--project 1-->
+  <a href="https://simple-games-95942.web.app/">
+    <div class="bg-white h-56 sm:h-72 lg:h-[30rem] w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300">
+      <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
+        <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600"> My simple game website </h3>
+        <img class="projectImg object-fit w-full" src="@/assets/game.png" alt="arcade">
+      </div>
+    </div>
+  </a>
+  <!-- project 2 -->
+  <div class="bg-white h-56 sm:h-72 lg:h-[30rem] w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" ref="project1" @click= "goQuiz">  
     <!-- project content (so it can move up when hover)-->
     <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">                                                    
     <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Quiz: What kind of bean are you? </h3>
-    <img class="projectImg object-cover w-full" src="@/assets/quiz/mixedBean.jpg" alt="no image">
-    </div>
-  </div>
-  <!--project 2-->
-  <div class="bg-white h-56 sm:h-72 lg:h-96 w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" @click= "goReactionGame">
-    <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
-    <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600">Mini game: How close can you get? </h3>
-    <img class="projectImg object-cover w-full" src="@/assets/reaction-game/thumbnail.png" alt="no image">
+    <img class="projectImg object-cover w-full" src="@/assets/quiz/mixedBean.jpg" alt="beans">
     </div>
   </div>
 </template>
