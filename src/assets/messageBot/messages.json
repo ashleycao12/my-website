@@ -25,8 +25,8 @@
         }, 
         {"text":"🤔 What's your next project?",
           "answers":[
-            "I'm thinking of making a chatroom or an online game website.",
-            "I'm curious how data is stored and transfered in real time between users."
+            "I'm making a website for my Mum's badminton court.",
+            "It will have a calendar that allows users to make bookings which will be confirmed via SMS message."
           ]
         }
       ]
