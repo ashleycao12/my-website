@@ -5,7 +5,7 @@
     <div class="text-center lg:text-left lg:w-1/2 mx-7 flex flex-col justify-center">  
       <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">Hi. I'm Ashley.</h1>
       <h1 class="text-3xl sm:text-6xl font-bogart font-semibold sm:leading-snug">A developer</h1>
-      <p class="text-left font-biotif text-gray-500 md:text-2xl my-5">I'm passionate about programming and creating IT solutions. Below are some mini projects that I did for fun.</p>
+      <p class="text-left font-biotif text-gray-500 md:text-2xl my-5">I'm passionate about creating IT solutions. My career has been involving fullstack and data development. Below are some of my work.</p>
     </div>
 
     <!-- gif -->
@@ -19,16 +19,25 @@
       </div>
   </div>
 
-  <!--project 1-->
-  <a href="https://simple-games-95942.web.app/">
+    <!--project 1-->
+    <a href="https://caulong-phuocthien.web.app/en-nz">
     <div ref="project1" class="bg-white h-56 sm:h-72 lg:h-[30rem] w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300">
+      <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
+        <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600"> Badminton court booking web app </h3>
+        <img class="projectImg object-fit w-full" src="@/assets/badminton.jpg" alt="badminton">
+      </div>
+    </div>
+  </a>
+  <!--project 2-->
+  <a href="https://simple-games-95942.web.app/">
+    <div ref="project2" class="bg-white h-56 sm:h-72 lg:h-[30rem] w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300">
       <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">
         <h3 class="pb-3 pt-6 sm:text-xl text-center font-bold text-gray-600"> My simple game website </h3>
         <img class="projectImg object-fit w-full" src="@/assets/game.png" alt="arcade">
       </div>
     </div>
   </a>
-  <!-- project 2 -->
+  <!-- project 3 -->
   <div class="bg-white h-56 sm:h-72 lg:h-[30rem] w-5/6 md:w-3/5 max-w-3xl mx-auto my-24 rounded-3xl overflow-hidden border border-red-200 hover:shadow-2xl transition ease duration-300" @click= "goQuiz">  
     <!-- project content (so it can move up when hover)-->
     <div class="cursor-pointer hover:-translate-y-3 transition ease duration-300">                                                    
